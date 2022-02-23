@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Installation on Dot</title>
-    <link>example.com/installation/</link>
-    <description>Recent content in Installation on Dot</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Copyright &amp;copy; 2021 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="example.com/installation/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Installation on Nunchuk</title><link>http://example.com/installation/</link><description>Recent content in Installation on Nunchuk</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>©2021 Nunchuk. All rights reserved.</copyright><lastBuildDate>Tue, 22 Feb 2022 16:03:11 +0000</lastBuildDate><atom:link href="http://example.com/installation/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

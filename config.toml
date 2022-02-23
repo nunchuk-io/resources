@@ -1,13 +1,12 @@
 ################################# Default configuration ###################
 # provide your domain here
-#baseURL = "https://demo.gethugothemes.com/dot/examplesite/"
-baseURL = "example.com"
+baseURL = "http://example.com"
 # theme
 theme = "dot-hugo"
 # site title
-title = "Dot"
+title = "Nunchuk"
 # disable language
-disableLanguages = []
+disableLanguages = ["fr"]
 # google analytics
 googleAnalytics = "" # paste your analytics ID here. (Ex: UA-123-45)
 # unsafe html
@@ -18,20 +17,20 @@ unsafe = true
 ############################# Default Parameters ##########################
 [params]
 # logo is for all page
-logo = ""
+logo = "images/Horizontal-Logo-2.1.png"
 # logo white is for homepage logo, you can use colorful logo too...
-logo_white = ""
+logo_white = "images/Horizontal-Logo-2.png"
 # when logo is empty, it will shown your site title
 
 # OpenGraph / Twitter Card metadata
-description = "This is meta description"
-author = "Themefisher"
-image = "images/logo.png" # this image will be used as fallback if a page has no image of its own
+description = "Nunchuk – The safest and most advanced self-custody solution for your bitcoin"
+author = "hugo"
+image = "images/Horizontal-Logo-2.png" # this image will be used as fallback if a page has no image of its own
 
 # customize color
-primary_color = "#02007e"
+primary_color = "#031f2b"
 body_color = "#f9f9f9"
-text_color = "#636363"
+text_color = "#031f2b"
 text_color_dark = "#242738"
 white_color = "#ffffff"
 light_color = "#f8f9fa"
@@ -40,49 +39,56 @@ light_color = "#f8f9fa"
 font_family = "lato" # Choose font family from : https://fonts.google.com/
 
 # contact form action
-contact_form_action = "#" # contact form works with : https://formspree.io
+# TODO: change this
+contact_form_action = "https://formspree.io/f/xgedkdbv" # contact form works with : https://formspree.io
 
 
 ############################## social links ##############################
-[[params.social]]
-icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
-name = "Facebook"
-link = "#"
+#[[params.social]]
+#icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
+#name = "Facebook"
+#link = "#"
 
 [[params.social]]
 icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
 name = "Twitter"
-link = "#"
+link = "https://twitter.com/nunchuk_io"
   
 [[params.social]]
 icon = "ti-github" # themify icon pack : https://themify.me/themify-icons
 name = "Github"
-link = "#"
-  
+link = "https://github.com/nunchuk-io"
+
+
 [[params.social]]
-icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
-name = "Linkedin"
-link = "#"
+icon = "ti-headphone-alt" # themify icon pack : https://themify.me/themify-icons
+name = "Slack"
+link = "https://join.slack.com/t/nunchukio/shared_invite/zt-xqdlvl5g-xKKohQu_R7IUo7_np8rVaw"
+  
+#[[params.social]]
+#icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
+#name = "Linkedin"
+#link = "#"
 
 ################################ English Language ######################
 [Languages.en]
 languageName = "En"
 languageCode = "en-us"
 weight = 1
-copyright = "Copyright &copy; 2021 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)"
+copyright = "©2021 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
 title = "Support Center & Knowledge base"
 subtitle = "Find advice and answers from our support team fast or get in touch"
-bg_image = "images/banner.jpg"
+bg_image = ""
 placeholder = "Have a question? Just ask here or enter terms"
 
 # call to action
 [Languages.en.params.cta]
 enable = true
 title = "Didn't find an answer to your question?"
-content = "Musce libero nunc, dignissim quis turpis quis, semper vehicula dolor. Suspendisse tincidunt consequat quam."
+content = ""
 # call to action button
 [Languages.en.params.cta.button]
 enable = true
@@ -125,73 +131,6 @@ hasChildren = true
   weight = 2
 
   [[Languages.en.menu.main]]
-  parent = "docs"
-  name = "Features"
-  url = "features/"
-  weight = 3
-
-
-################################### Franch Language ######################
-[Languages.fr]
-languageName = "Fr"
-languageCode = "fr-fr"
-weight = 2
-copyright = "Copyright &copy; 2021 un thème Hugo par [Gethugothemes](https://gethugothemes.com/)"
-
-# banner
-[Languages.fr.params.banner]
-title = "Comment pouvons nous aider?"
-subtitle = "Trouvez rapidement des conseils et des réponses auprès de notre équipe d'assistance ou contactez-nous."
-bg_image = "images/banner.jpg"
-placeholder = "Avoir une question? Il suffit de demander ici ou de saisir les termes"
-
-# call to action
-[Languages.fr.params.cta]
-enable = true
-title = "Vous n'avez pas trouvé de réponse à votre question?"
-content = "Contactez-nous pour plus de détails sur les services supplémentaires et la tarification du travail personnalisé"
-# call to action button
-[Languages.fr.params.cta.button]
-enable = true
-label = "Contactez nous"
-link = "contact/"
-
-
-################## french navigation #################
-[[Languages.fr.menu.main]]
-name = "Accueil"
-url = "/"
-weight = 1
-
-[[Languages.fr.menu.main]]
-name = "Faq"
-url = "faq/"
-weight = 2
-
-[[Languages.fr.menu.main]]
-name = "contact"
-url = "contact/"
-weight = 3
-
-# Dropdown menu
-[[Languages.fr.menu.main]]
-weight = 4
-name = "docs"
-hasChildren = true
-
-  [[Languages.fr.menu.main]]
-  parent = "docs"
-  name = "Installation"
-  url = "installation/"
-  weight = 1
-
-  [[Languages.fr.menu.main]]
-  parent = "docs"
-  name = "Billing and Pricing"
-  url = "billing-pricing/"
-  weight = 2
-
-  [[Languages.fr.menu.main]]
   parent = "docs"
   name = "Features"
   url = "features/"

@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <sitemap>
-    <loc>example.com/en/sitemap.xml</loc>
-    
-      <lastmod>2020-01-05T10:42:26+06:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>example.com/fr/sitemap.xml</loc>
-    
-      <lastmod>2020-01-05T10:42:26+06:00</lastmod>
-    
-  </sitemap>
-  
-</sitemapindex>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>http://example.com/installation/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/installation/windows/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/add-key/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/installation/mac/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/create-wallet/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/make-transaction/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/collaborative/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod></url><url><loc>http://example.com/installation/elements/</loc><lastmod>2020-01-05T10:42:26+06:00</lastmod></url><url><loc>http://example.com/</loc><lastmod>2022-02-22T16:03:11+00:00</lastmod><priority>0</priority></url><url><loc>http://example.com/categories/</loc></url><url><loc>http://example.com/faq/</loc></url><url><loc>http://example.com/contact/</loc></url><url><loc>http://example.com/tags/</loc></url></urlset>

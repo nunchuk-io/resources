@@ -1,7 +1,8 @@
 ---
 title: "Installation"
-date: 2018-12-29T11:02:05+06:00
+date: 2022-02-22T16:03:11.470Z
 icon: "ti-panel"
-description: "Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet"
+description: "Learn how to install Nunchuk"
+weight: 1
 type : "docs"
 ---

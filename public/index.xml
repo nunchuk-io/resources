@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Dot</title>
-    <link>example.com/</link>
-    <description>Recent content on Dot</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Copyright &amp;copy; 2021 a Hugo theme by [Gethugothemes](https://gethugothemes.com/)</copyright>
-    <lastBuildDate>Sat, 29 Dec 2018 11:02:05 +0600</lastBuildDate><atom:link href="example.com/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nunchuk</title><link>http://example.com/</link><description>Recent content on Nunchuk</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>©2021 Nunchuk. All rights reserved.</copyright><lastBuildDate>Tue, 22 Feb 2022 16:03:11 +0000</lastBuildDate><atom:link href="http://example.com/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

@@ -1,6 +1,6 @@
 ################################# Default configuration ###################
 # provide your domain here
-baseURL = "http://example.com"
+baseURL = "https://nunchuk.io"
 # theme
 theme = "dot-hugo"
 # site title
@@ -79,10 +79,10 @@ copyright = "©2021 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
-title = "Support Center & Knowledge base"
-subtitle = "Find advice and answers from our support team fast or get in touch"
+title = "Support Center & Knowledge Base"
+subtitle = "Find answers from our team quickly or get in touch"
 bg_image = ""
-placeholder = "Have a question? Just ask here or enter terms"
+placeholder = "Enter your search keywords here"
 
 # call to action
 [Languages.en.params.cta]
@@ -123,12 +123,6 @@ hasChildren = true
   name = "Installation"
   url = "installation/"
   weight = 1
-
-  [[Languages.en.menu.main]]
-  parent = "docs"
-  name = "Billing and Pricing"
-  url = "billing-pricing/"
-  weight = 2
 
   [[Languages.en.menu.main]]
   parent = "docs"

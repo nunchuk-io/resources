@@ -1,5 +1,5 @@
 # nunchuk-faq
-Nunchuk FAQ and Knowledge Base website
+Nunchuk Support Center & Knowledge Base website
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8af82755-1753-4d73-9306-20520e14a77f/deploy-status)](https://app.netlify.com/sites/nunchuk-faq/deploys)
 

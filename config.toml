@@ -101,7 +101,8 @@ link = "contact/"
 name = "Home"
 url = "https://nunchuk.io"
 weight = 1
-hrefTargetBlank = true
+  [Languages.en.menu.main.params]
+    hrefTargetBlank = true
 
 [[Languages.en.menu.main]]
 name = "Faq"
@@ -109,7 +110,6 @@ url = "faq/"
 weight = 2
 
 [[Languages.en.menu.main]]
-name = "contact"
+name = "Contact"
 url = "contact/"
 weight = 3
-

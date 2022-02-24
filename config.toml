@@ -99,8 +99,9 @@ link = "contact/"
 ################## english navigation #################
 [[Languages.en.menu.main]]
 name = "Home"
-url = ""
+url = "https://nunchuk.io"
 weight = 1
+hrefTargetBlank = true
 
 [[Languages.en.menu.main]]
 name = "Faq"
@@ -112,20 +113,3 @@ name = "contact"
 url = "contact/"
 weight = 3
 
-# Dropdown menu
-[[Languages.en.menu.main]]
-weight = 4
-name = "docs"
-hasChildren = true
-
-  [[Languages.en.menu.main]]
-  parent = "docs"
-  name = "Installation"
-  url = "installation/"
-  weight = 1
-
-  [[Languages.en.menu.main]]
-  parent = "docs"
-  name = "Features"
-  url = "features/"
-  weight = 3

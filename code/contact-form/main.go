@@ -8,8 +8,10 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"net/http"
 	"strings"
 
+	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -41,16 +43,20 @@ func ValidateEmail(email string) error {
 	return nil
 }
 
-func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (string, error) {
+func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (events.APIGatewayProxyResponse, error) {
 	log.Println("Request", submission)
 
 	if err := ValidateEmail(submission.Mail); err != nil {
-		return "", err
+		return events.APIGatewayProxyResponse{
+			StatusCode: http.StatusBadRequest,
+		}, err
 	}
 
 	bytes, err := json.Marshal(submission)
 	if err != nil {
-		return "", err
+		return events.APIGatewayProxyResponse{
+			StatusCode: http.StatusBadRequest,
+		}, err
 	}
 
 	// Create a new session in the ap-southeast-1 region.
@@ -114,7 +120,14 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 
 	log.Println("Send result:", result)
 
-	return string(bytes), nil
+	return events.APIGatewayProxyResponse{
+		StatusCode: http.StatusOK,
+		Headers: map[string]string{
+			"Access-Control-Allow-Origin":  "*",
+			"Access-Control-Allow-Methods": "POST,OPTIONS",
+			"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
+		},
+	}, nil
 
 }
 

@@ -1,0 +1,81 @@
+{{ define "main" }}
+
+<!-- contact -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title text-primary">{{ .Title }}</h2>
+        {{ .Content }}
+        <form
+          method="POST"
+          id="contact-form"
+        >
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control mb-4 shadow rounded-0"
+          />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="mail"
+            name="mail"
+            class="form-control mb-4 shadow rounded-0"
+          />
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            class="form-control mb-4 shadow rounded-0"
+          />
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            class="form-control mb-4 shadow rounded-0"
+          ></textarea>
+          <button type="submit" value="send" class="btn btn-primary">
+            {{ i18n "send" }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /contact -->
+
+
+<!-- Contact form script -->
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault()
+    const data = new FormData(event.target);
+    const value = Object.fromEntries(data.entries());
+    fetch("{{ .Site.Params.contact_form_action | safeURL }}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(value),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Success:", data);
+      alert("{{ .Site.Params.contact_form_success }}")
+      document.location.href="/";
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("{{ .Site.Params.contact_form_success }}")
+      document.location.href="/";
+    });
+  })
+</script>
+<!-- Contact form script -->
+
+{{ end }}

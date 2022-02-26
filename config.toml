@@ -39,9 +39,8 @@ light_color = "#f8f9fa"
 font_family = "lato" # Choose font family from : https://fonts.google.com/
 
 # contact form action
-# TODO: change this
-contact_form_action = "https://formspree.io/f/xgedkdbv" # contact form works with : https://formspree.io
-
+contact_form_action = "https://contact-form.nunchuk.io/contact"
+contact_form_success = "Thank you for contacting us.\nWe will get back in touch soon!"
 
 ############################## social links ##############################
 #[[params.social]]

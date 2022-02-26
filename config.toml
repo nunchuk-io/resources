@@ -89,7 +89,6 @@ placeholder = "Enter your search keywords here"
 enable = true
 title = "Didn't find an answer to your question?"
 content = ""
-
 # call to action button
 [Languages.en.params.cta.button]
 enable = true

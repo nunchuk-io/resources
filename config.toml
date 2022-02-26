@@ -41,6 +41,7 @@ font_family = "lato" # Choose font family from : https://fonts.google.com/
 # contact form action
 contact_form_action = "https://contact-form.nunchuk.io/contact"
 contact_form_success = "Thank you for contacting us.\nWe will get back in touch soon!"
+contact_form_fail = "Unfortunately an error occurred. Please try again later"
 
 ############################## social links ##############################
 #[[params.social]]

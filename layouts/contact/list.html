@@ -18,7 +18,7 @@
             name="name"
             class="form-control mb-4 shadow rounded-0"
           />
-          <label for="email">Email</label>
+          <label for="mail">Email</label>
           <input
             type="email"
             id="mail"
@@ -63,7 +63,7 @@
         },
         body: JSON.stringify(value),
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
       console.log("Success:", data);
       alert("{{ .Site.Params.contact_form_success }}")
@@ -71,7 +71,7 @@
     })
     .catch((error) => {
       console.error("Error:", error);
-      alert("{{ .Site.Params.contact_form_success }}")
+      alert("{{ .Site.Params.contact_form_fail }}")
       document.location.href="/";
     });
   })

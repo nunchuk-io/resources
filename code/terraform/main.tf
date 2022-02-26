@@ -6,10 +6,12 @@ terraform {
       version = "~> 3.46.0"
     }
   }
-  cloud {
+  backend "remote" {
+    hostname     = "app.terraform.io"
     organization = "nunchukio"
+
     workspaces {
-      name = "resources-prod"
+      prefix = "resources-"
     }
   }  
 }

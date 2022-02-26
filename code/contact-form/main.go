@@ -8,10 +8,8 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"net/http"
 	"strings"
 
-	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -27,6 +25,7 @@ type ContactForm struct {
 }
 
 const (
+	DevTestEmail        = "giahuy@nunchuk.io"
 	NunchukSupportEmail = "support@nunchuk.io"
 	CharSet             = "UTF-8"
 	HtmlBody            = `<body>
@@ -43,20 +42,16 @@ func ValidateEmail(email string) error {
 	return nil
 }
 
-func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (events.APIGatewayProxyResponse, error) {
+func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (string, error) {
 	log.Println("Request", submission)
 
 	if err := ValidateEmail(submission.Mail); err != nil {
-		return events.APIGatewayProxyResponse{
-			StatusCode: http.StatusBadRequest,
-		}, err
+		return "", err
 	}
 
 	bytes, err := json.Marshal(submission)
 	if err != nil {
-		return events.APIGatewayProxyResponse{
-			StatusCode: http.StatusBadRequest,
-		}, err
+		return "", err
 	}
 
 	// Create a new session in the ap-southeast-1 region.
@@ -71,7 +66,9 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (e
 	// Assemble the email.
 	input := &ses.SendEmailInput{
 		Destination: &ses.Destination{
-			CcAddresses: []*string{},
+			CcAddresses: []*string{
+				aws.String(DevTestEmail),
+			},
 			ToAddresses: []*string{
 				aws.String(NunchukSupportEmail),
 			},
@@ -120,15 +117,7 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (e
 
 	log.Println("Send result:", result)
 
-	return events.APIGatewayProxyResponse{
-		StatusCode: http.StatusOK,
-		Headers: map[string]string{
-			"Access-Control-Allow-Origin":  "*",
-			"Access-Control-Allow-Methods": "POST,OPTIONS",
-			"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
-		},
-	}, nil
-
+	return string(bytes), nil
 }
 
 func main() {

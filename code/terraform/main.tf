@@ -215,6 +215,10 @@ resource "aws_api_gateway_method_response" "endpoint" {
   response_models = {
     "application/json" = aws_api_gateway_model.contact_model.name
   }
+  response_parameters  = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+    "method.response.header.Access-Control-Allow-Headers" = true
+  }
 }
 
 resource "aws_api_gateway_integration" "endpoint" {
@@ -238,6 +242,9 @@ resource "aws_api_gateway_integration_response" "endpoint" {
 
   response_templates = {
     "application/json" = aws_api_gateway_model.contact_model.id
+  }
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = "'*'"
   }
 }
 

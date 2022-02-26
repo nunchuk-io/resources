@@ -77,7 +77,7 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 			Body: &ses.Body{
 				Html: &ses.Content{
 					Charset: aws.String(CharSet),
-					Data:    aws.String(fmt.Sprint(HtmlBody, submission.Message, string(bytes))),
+					Data:    aws.String(fmt.Sprintf(HtmlBody, submission.Message, string(bytes))),
 				},
 				Text: &ses.Content{
 					Charset: aws.String(CharSet),

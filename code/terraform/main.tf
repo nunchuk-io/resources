@@ -6,6 +6,12 @@ terraform {
       version = "~> 3.46.0"
     }
   }
+  cloud {
+    organization = "nunchukio"
+    workspaces {
+      name = "resources-prod"
+    }
+  }  
 }
 
 provider "aws" {

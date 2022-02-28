@@ -8,14 +8,6 @@ draft: false
 keywords: ["recovery, personal"]
 ---
 
-### Download Nunchuk
 
-[Desktop](https://nunchuk.io/#Download)
-
-
-### Unzip
-{{< notice tip >}}
-  This is a simple tip.
-{{</ notice >}}
 
 

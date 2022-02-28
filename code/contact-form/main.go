@@ -8,20 +8,25 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"os"
 	"strings"
+	"time"
 
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/kataras/hcaptcha"
 )
 
 type ContactForm struct {
-	Name    string `json:"name"`
-	Mail    string `json:"mail"`
-	Subject string `json:"subject"`
-	Message string `json:"message"`
+	Name             string    `json:"name"`
+	Mail             string    `json:"mail"`
+	Subject          string    `json:"subject"`
+	Message          string    `json:"message"`
+	HCaptchaResponse string    `json:"h-captcha-response,omitempty"`
+	Date             time.Time `json:"date"`
 }
 
 const (
@@ -49,10 +54,20 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 		return "", err
 	}
 
+	submission.Date = time.Now()
+
 	bytes, err := json.Marshal(submission)
 	if err != nil {
 		return "", err
 	}
+
+	hCaptchaClient := hcaptcha.New(os.Getenv("HCAPTCHA_SECRET_KEY"))
+	if captchaResp := hCaptchaClient.VerifyToken(submission.HCaptchaResponse); !captchaResp.Success {
+		return "", fmt.Errorf("invalid captcha: %v", captchaResp.ErrorCodes)
+	}
+
+	// Remove hcaptcha when send email
+	submission.HCaptchaResponse = ""
 
 	// Create a new session in the ap-southeast-1 region.
 	// Replace ap-southeast-1 with the AWS Region you're using for Amazon SES.

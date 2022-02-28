@@ -121,6 +121,7 @@ resource "aws_lambda_function" "func" {
   environment {
     variables = {
       RANDOM_NAME = local.random_name
+      HCAPTCHA_SECRET_KEY = var.hcaptcha_secret_key
     }
   }
 }

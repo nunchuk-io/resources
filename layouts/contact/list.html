@@ -23,6 +23,7 @@
             type="email"
             id="mail"
             name="mail"
+            required="true"
             class="form-control mb-4 shadow rounded-0"
           />
           <label for="subject">Subject</label>
@@ -36,12 +37,20 @@
           <textarea
             name="message"
             id="message"
+            required="true"
             class="form-control mb-4 shadow rounded-0"
           ></textarea>
+          <div 
+            class="h-captcha mb-4 rounded-0" 
+            data-sitekey="f3d5949e-62a3-400a-8d6f-f388b9b67cba"
+            required="true"
+            ></div>
+          <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
           <button type="submit" value="send" class="btn btn-primary">
             {{ i18n "send" }}
           </button>
         </form>
+        <script></script>
       </div>
     </div>
   </div>
@@ -53,6 +62,10 @@
 <script>
   document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault()
+    if (hcaptcha.getResponse().length == 0) {
+      alert("Please fill out captcha!")
+      return
+    }
     const data = new FormData(event.target);
     const value = Object.fromEntries(data.entries());
     fetch("{{ .Site.Params.contact_form_action | safeURL }}", {

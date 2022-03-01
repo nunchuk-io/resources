@@ -87,11 +87,11 @@ Hurrah, you have fully recovered the wallet! You can now proceed to withdraw you
 Create a Send transaction, sign it with your recovered key(s), and wait for the transaction to confirm on the blockchain.
 
 {{< notice warning >}}
-  When signing, please make sure that all transaction data, such as destination address and transaction fee, are accurate.
+  When signing, please make sure that all transaction data, such as destination address and transaction fee, are accurate. If you are unsure, try sending a small amount first.
 {{< /notice >}}
 
 {{< notice note >}}
-  To drain the entire wallet, remember to tick the "Send all" box when creating the Send transaction.
+  To drain the entire wallet, tick the "Send all" box when creating the Send transaction.
 {{< /notice >}}
 
 ![Sweep wallet](sweep_wallet.jpg)

@@ -114,11 +114,11 @@ For example, if there are 3 members A, B and C involved in the recovery, and 3 s
 The medium of file exchange could be email, messaging apps, or SD cards. An encrypted medium is recommended for better privacy.
 
 {{< notice warning >}}
-  When signing, each member should take care to make sure that all transaction data, such as destination address and transaction fee, are accurate.
+  When signing, all members should take care to make sure that all transaction data, such as destination address and transaction fee, are accurate.  If you are unsure, try sending a small amount first.
 {{< /notice >}}
 
 {{< notice note >}}
-  To drain the entire wallet, remember to tick the "Send all" box when creating the Send transaction.
+  To drain the entire wallet, tick the "Send all" box when creating the Send transaction.
 {{< /notice >}}
 
 {{< notice note >}}

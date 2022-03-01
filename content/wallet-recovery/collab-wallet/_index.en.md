@@ -21,25 +21,25 @@ keywords: ["recovery, collaborative"]
 
 A collaborative wallet is one where you manage bitcoin with other people. Each member of the wallet possesses one or more keys.
 
+A collaborative wallet recovery will require the cooperation of several members of the wallet in order to create, sign and broadcast transactions. This is in contrast with [personal wallet recovery]({{< ref "/wallet-recovery/personal-wallet/" >}}) where you can perform the recovery by yourself.
+
 To recover a collaborative wallet, you will need:
-* The **seed phrase(s)** for several members' keys - depending on how the wallet was configured, you might not need all seed phrases
+* The **seed phrase(s)** for several members' keys
 * The **wallet configuration file**
 * A way of **exchanging files out-of-band**, such as email, messaging apps or SD cards
 
-A collaborative wallet recovery will require the cooperation of several members of the wallet in order to create, sign and broadcast transactions. This is in contrast with [personal wallet recovery]({{< ref "/wallet-recovery/personal-wallet/" >}}) where you can perform the recovery by yourself.
-
-**The number of seed phrases you will need is the same as the number of signatures required to unlock the wallet.** For example: for a 3-of-5 multisig wallet, you will need 3 seed phrases for recovery.
+**The number of seed phrases you will need is the same as the number of signatures required to unlock the wallet.** For example: for a 3-of-5 multisig wallet, you will need 3 seed phrases.
 
 {{< notice info >}}
-  Seed phrases are defined in [BIP-0039 specification](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
+  Seed phrases are defined in [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 {{< /notice >}}
 
 {{< notice info >}}
-  The wallet configuration file has a .bsms extension and is defined in [BIP-0129 specification](https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki).
+  The wallet configuration file has a .bsms extension and is defined in [BIP-0129](https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki).
 {{< /notice >}}
 
 {{< notice note >}}
-  For simplicity, this is a "clean slate" recovery. It assumes that the users have no prior data except for the seed phrases and the wallet configuration file. It uses Guest mode, which does not require any accounts.
+  For simplicity, this is a "clean slate" recovery. It assumes that the user has nothing else but the seed phrases and the wallet configuration file. It uses Guest mode, which does not require any accounts. It also assumes that there are no hardware keys that survive from the original setup. If there are hardware keys, simply pair the hardware keys with Nunchuk in step 3 (instead of recovering).
 {{< /notice >}}
 
 {{< notice note >}}
@@ -51,7 +51,7 @@ A collaborative wallet recovery will require the cooperation of several members 
 {{< /notice >}}
 
 {{< notice note >}}
-  **[IMPORTANT]** Steps 1-4 and 6 should be carried out individually by each member that participates in the recovery process. Step 5 should be done cooperatively as a group.
+  **[IMPORTANT]** Steps 1-4 and 6 should be carried out individually by each member that participates in the recovery process. Step 5 should be done together as a group.
 {{< /notice >}}
 
 ### Step 1: Download the Nunchuk app and log in using Guest mode <a name="step1"></a>
@@ -71,7 +71,7 @@ Log in as Guest.
 Recover your keys one-by-one by entering the seed phrase for each key.
 
 {{< notice note >}}
-  Unless a member is willing to transfer their signing privileges to another member (and therefore disclosing their seed phrase(s) to that member), each member that participates in the recovery process should only recover their own key(s).
+  Each member should only recover their own key(s). An exception is when a member wants to transfer ownership of seed phrases and keys to another member (note that this also weakens the security of the collaborative wallet).  
 {{< /notice >}}
 
 ![Add a key](add_key.jpg)
@@ -95,7 +95,7 @@ After the import, you should see the wallet show up in the list of wallets. Sele
 
 Hurrah, you have recovered the wallet! You can now proceed to withdraw your bitcoin. This step must be done together as a group.
 
-One member in the group should initiate a Send transaction, sign off on that transaction using his key(s), and export the transaction as a PSBT file. (PSBT stands for Partially-Signed Bitcoin Transaction and is defined in [BIP-0174 specification](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki)).
+One member in the group should initiate a Send transaction, sign off on that transaction using his key(s), and export the transaction as a PSBT file. (PSBT stands for Partially-Signed Bitcoin Transaction and is defined in [BIP-0174](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki)).
 
 The group then should form a chain: each member gets a PSBT file from a previous member (starting from the transaction creator), adds their signature to it, and then passes on the modified PSBT file to the next member, and so on. Once the PSBT has collected enough signatures, it can be broadcast by the last member.
 
@@ -105,9 +105,13 @@ For example, if there are 3 members A, B and C involved in the recovery, and 3 s
 * B imports **A.psbt**, signs it, and exports it as a new file named **A+B.psbt**
 * B passes on **A+B.psbt** onto C
 * C imports **A+B.psbt** and signs it - the transaction now has 3 signatures from A, B and C
-* C broadcasts the transaction
+* C can now broadcast the transaction
 
 The medium of file exchange could be email, messaging apps, or SD cards. An encrypted medium is recommended for better privacy.
+
+{{< notice warning >}}
+  When signing, each member should take care to make sure that all transaction data, such as destination address and transaction fee, are legitimate.
+{{< /notice >}}
 
 {{< notice note >}}
   To drain the entire wallet, remember to tick the "Send all" box when creating the Send transaction.
@@ -118,6 +122,8 @@ The medium of file exchange could be email, messaging apps, or SD cards. An encr
 {{< /notice >}}
 
 #### (A) Create a Send transaction
+
+Tick "Send all" if you want to drain the wallet
 ![Sweep wallet](sweep_wallet.jpg)
 
 #### (B) Sign and export PSBT

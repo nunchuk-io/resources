@@ -205,7 +205,7 @@ Import the receive & change descriptors into the wallet:
 ]
 ```
 
-{{< notice info >}}
+{{< notice note >}}
   importdescriptors() will trigger a chain rescan to identify transactions in the wallet, which can take a long time. If you want to hasten this process, you can replace the import timestamp with a more recent timestamp (e.g. the wallet creation timestamp).
 {{< /notice >}}
 

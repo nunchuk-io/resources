@@ -8,136 +8,287 @@ draft: false
 keywords: ["recovery, personal"]
 ---
 
+Nunchuk is built on open tools and standards. That means you can recover your Nunchuk wallets using other freely available software.
+
+This guide shows you how to recover a Nunchuk wallet using [Bitcoin Core](https://github.com/bitcoin/bitcoin).
+
 ### Table of contents
 * [Overview](#overview)
-* [Step 1: Download the Nunchuk app and log in using Guest mode](#step1)
-* [Step 2: Make sure that you are on mainnet](#step2)
-* [Step 3: Recover your key(s)](#step3)
-* [Step 4: Recover your wallet](#step4)
-* [Step 5: Cooperatively spend from the wallet](#step5)
-* [Step 6: Clean up](#step6)
+* [Step 1: Download, install, and sync Bitcoin Core](#step1)
+* [Step 2: Download BIP39-Master Key conversion tool](#step3)
+* [Step 3: Extract the master keys](#step3)
+* [Step 4: Construct the wallet descriptors](#step4)
+* [Step 5: Recover your wallet](#step5)
+* [Step 6: Spend from the wallet](#step6)
+* [Step 7: Clean up](#step7)
 
 ### Overview <a name="overview"></a>
 
-A collaborative wallet is one where you manage bitcoin with other people. Each member of the wallet possesses one or more keys.
-
-To recover a collaborative wallet, you will need:
-* The **seed phrase(s)** for several members' keys - depending on how the wallet was configured, you might not need all seed phrases
+What you need:
+* The **seed phrase(s)** for your key(s)
 * The **wallet configuration file**
-* A way of **exchanging files out-of-band**, such as email, messaging apps or SD cards
+* **Bitcoin Core**
+* **BIP39 conversion tool**
 
-A collaborative wallet recovery will require the cooperation of several members of the wallet in order to create, sign and broadcast transactions. This is in contrast with [personal wallet recovery]({{< ref "/wallet-recovery/personal-wallet/" >}}) where you can perform the recovery by yourself.
-
-**The number of seed phrases you will need is the same as the number of signatures required to unlock the wallet.** For example: for a 3-of-5 multisig wallet, you will need 3 seed phrases for recovery.
+**The number of seed phrases you will need is equal to the number of signatures required to unlock the wallet.** For examples: for a singlesig wallet, you will need exactly 1 seed phrase; for a 2-of-3 multisig wallet, you will need 2 seed phrases.
 
 {{< notice info >}}
-  Seed phrases are defined in [BIP-0039 specification](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
+  Seed phrases are backups for your keys. They are defined in [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 {{< /notice >}}
 
 {{< notice info >}}
-  The wallet configuration file has a .bsms extension and is defined in [BIP-0129 specification](https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki).
+  The wallet configuration file contains important information on how your wallet is constructed. It is defined in [BIP-0129](https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki).
 {{< /notice >}}
 
 {{< notice note >}}
-  For simplicity, this is a "clean slate" recovery. It assumes that the users have no prior data except for the seed phrases and the wallet configuration file. It uses Guest mode, which does not require any accounts.
+  For simplicity, this is a "clean slate" recovery. It assumes that the user has nothing other than the seed phrases and the wallet configuration file.
 {{< /notice >}}
 
 {{< notice note >}}
   Any key that has a passphrase must be recovered using both the seed phrase and the passphrase.
 {{< /notice >}}
 
-{{< notice note >}}
-  This recovery guide uses the Nunchuk desktop app. The same process can be done using the Nunchuk mobile apps.
-{{< /notice >}}
+### Step 1: Download, install, and sync Bitcoin Core <a name="step1"></a>
+Download Bitcoin Core from https://bitcoincore.org. Verify the release using the provided signatures.
+
+Alternatively, you can build Core manually, following the instructions at: https://github.com/bitcoin/bitcoin/tree/master/doc.
+
+Add **bitcoind** and **bitcoin-cli** executables to your environment.
+
+Sync a full node:
+
+```bash
+⟩ bitcoind -daemon # Starts the bitcoin daemon, syncing will begin
+```
 
 {{< notice note >}}
-  **[IMPORTANT]** Steps 1-4 and 6 should be carried out individually by each member that participates in the recovery process. Step 5 should be done cooperatively as a group.
+  Depending on your bandwidth, a full node could take up to a couple of days to sync.
 {{< /notice >}}
 
-### Step 1: Download the Nunchuk app and log in using Guest mode <a name="step1"></a>
-Download the app from our website: https://nunchuk.io/#Download.
+### 2: Download BIP39-Master Key conversion tool <a name="step2"></a>
 
-Log in as Guest.
+Download the offline BIP39 conversion tool at: https://github.com/iancoleman/bip39/releases. Verify the release using the provided signatures.
 
-![Use guest mode](guest_mode.jpg)
+Alternatively, you can compile it manually.
 
-### Step 2: Make sure that you are on mainnet <a name="step2"></a>
+Open the **bip39-standalone.html** file in a browser by double-clicking it.
 
-![Open settings](settings.jpg)
-![Make sure your network is mainnet](network_settings.jpg)
-
-### Step 3: Recover your key(s) <a name="step3"></a>
-
-Recover your keys one-by-one by entering the seed phrase for each key.
-
-{{< notice note >}}
-  Unless a member is willing to transfer their signing privileges to another member (and therefore disclosing their seed phrase(s) to that member), each member that participates in the recovery process should only recover their own key(s).
+{{< notice warning >}}
+  Make sure to use the offline version and never the online version at https://iancoleman.io/bip39. Using the online version can leak your private keys.
 {{< /notice >}}
 
-![Add a key](add_key.jpg)
-![Add a software key](add_software_key.jpg)
-![Recover using seed](recover_with_seed.jpg)
+### Step 3: Extract the master keys <a name="step3"></a>
 
-### Step 4: Recover your wallet <a name="step4"></a>
+For each of your seed phrases, extract the master extended private key (master XPRIV) by doing the following:
+* Set the **BIP39 Mnemonic** to your seed phrase
+* Input the **passphrase** if you have one
+* Make sure Coin is **BTC - Bitcoin**
+* Note down your master key under **BIP32 Root Key**
 
-Recover your collaborative wallet by importing the wallet configuration file (.bsms). Remember to name the wallet before selecting a file to import.
-
-After the import, you should see the wallet show up in the list of wallets. Select the wallet and wait for it to finish syncing.
-
-{{< notice note >}}
-  If the wallet's transaction history and balance are still not up-to-date after a while, try restarting the app.
+{{< notice info >}}
+  The reason we need to convert BIP39 seed phrases into master keys is because [Bitcoin Core does not support BIP39 seed phrases](https://bitcoin.stackexchange.com/a/88244).
 {{< /notice >}}
 
-![Add a wallet](add_wallet.jpg)
-![Import BSMS](import_bsms.jpg)
+Example seed phrase:
+```bash
+genuine orange asset ostrich foot catalog warm audit decrease educate clip early hen canyon elevator turkey obscure village napkin insane flat pencil alley siren
+```
 
-### Step 5: Cooperatively spend from the wallet <a name="step5"></a>
+Corresponding master XPRIV:
+```bash
+tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr
+```
 
-Hurrah, you have recovered the wallet! You can now proceed to withdraw your bitcoin. This step must be done together as a group.
+![Extract master XPRIV from seed phrase](xpriv.jpg)
 
-One member in the group should initiate a Send transaction, sign off on that transaction using his key(s), and export the transaction as a PSBT file. (PSBT stands for Partially-Signed Bitcoin Transaction and is defined in [BIP-0174 specification](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki)).
+### Step 4: Construct the wallet descriptors <a name="step4"></a>
 
-The group then should form a chain: each member gets a PSBT file from a previous member (starting from the transaction creator), adds their signature to it, and then passes on the modified PSBT file to the next member, and so on. Once the PSBT has collected enough signatures, it can be broadcast by the last member.
+Open the wallet configuration file (.bsms).
 
-For example, if there are 3 members A, B and C involved in the recovery, and 3 signatures are required, here is how the process works:
-* A creates the Send transaction, signs it, and exports it as a file named **A.psbt**
-* A passes **A.psbt** onto B
-* B imports **A.psbt**, signs it, and exports it as a new file named **A+B.psbt**
-* B passes on **A+B.psbt** onto C
-* C imports **A+B.psbt** and signs it - the transaction now has 3 signatures from A, B and C
-* C broadcasts the transaction
+For example, here is a BSMS file. The descriptor template can be found on the second line:
 
-The medium of file exchange could be email, messaging apps, or SD cards. An encrypted medium is recommended for better privacy.
+```bash
+BSMS 1.0
+wsh(sortedmulti(1,[6b7c8e84/48'/1'/1']tpubDDnhmLtGvcXQwi4gGhKKTxQeXVXPjivpfWT9aiZ3VENrRTrzMLj4xymfisG18eVshwovyD9Z1zeqBoB8n7VhXaJkHj6yw3ib8BjAaMViDwU/**,[721143dc/48'/1'/2']tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/**))
+/0/*,/1/*
+tb1q5wvvjtmpaqpdjt669h2zfd5uvhm47kv8l049xqxpwfu24u9smu8sy72m8k
+```
 
-{{< notice note >}}
-  To drain the entire wallet, remember to tick the "Send all" box when creating the Send transaction.
+{{< notice info >}}
+  [Output descriptors](https://bitcoinops.org/en/topics/output-script-descriptors), or descriptors for short, are strings that contain all the information necessary to track a wallet's addresses and transactions.
 {{< /notice >}}
 
-{{< notice note >}}
-  When the number of signatures required is large, it might be faster to sign in parallel instead of sequentially. In that case, the transaction creator should send out an unsigned PSBT, collect the signed PSBTs from the individual members, import them into his own wallet, and finally does the broadcast himself.
+For each of the master keys extracted in step 3, **we will need to identify the corresponding XPUB and replace the XPUB with the master XPRIV**.
+
+We see that the XPUBs in the template have the following derivation paths:
+
+```bash
+[6b7c8e84/48'/1'/1']
+```
+
+```bash
+[721143dc/48'/1'/2']
+```
+
+Now, using the offline BIP39 conversion tool, under the Derivation Path section, choose **BIP32**. For each master key in step 3, enter one of the derivation paths above and see whether the resulting XPUB matches with one of the XPUBs in the descriptor template.
+
+We see that the XPRIV that we noted down in step 3 corresponds to this XPUB:
+
+```bash
+[6b7c8e84/48'/1'/1']tpubDDnhmLtGvcXQwi4gGhKKTxQeXVXPjivpfWT9aiZ3VENrRTrzMLj4xymfisG18eVshwovyD9Z1zeqBoB8n7VhXaJkHj6yw3ib8BjAaMViDwU/**
+````
+
+![Matching XPUBs](xpub.jpg)
+
+Now for the XPUB in question: replace the master key fingerprint **6b7c8e84** with the XPRIV, remove the outside brackets **[]**, replace the **/\*\*** string with the receive derivation path (i.e., **/0/\***). Finally replace all **\'** with **h** within the template. We will get this new descriptor for receive addresses:
+
+```bash
+wsh(sortedmulti(1,tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr/48h/1h/1h/0/*,[721143dc/48h/1h/2h]tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/0/*))
+```
+
+Use **bitcoin-cli** to calculate the descriptor checksum (**#nvk258vn**):
+```bash
+⟩ bitcoin-cli getdescriptorinfo 'wsh(sortedmulti(1,tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr/48h/1h/1h/0/*,[721143dc/48h/1h/2h]tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/0/*))'
+{
+  "descriptor": "wsh(sortedmulti(1,tpubD6NzVbkrYhZ4XHrdqLmXDCx7nvdEo1wSWuQqBSJwMp2TyLtGGRDi48MatS3GxxnGr4ZUjtm2PCZEQ7A3H9gYSdZHDtMb2npk2ffDSxbF7yd/48'/1'/1'/0/*,[721143dc/48'/1'/2']tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/0/*))#m727lrwf",
+  "checksum": "nvk258vn",
+  "isrange": true,
+  "issolvable": true,
+  "hasprivatekeys": true
+}
+```
+
+Repeat one more time to get the change addresses descriptor (**/1/\***) and its checksum (**#sdw5dkct**):
+
+```bash
+wsh(sortedmulti(1,tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr/48h/1h/1h/1/*,[721143dc/48h/1h/2h]tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/1/*))
+```
+
+```bash
+⟩ bitcoin-cli getdescriptorinfo 'wsh(sortedmulti(1,tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr/48h/1h/1h/1/*,[721143dc/48h/1h/2h]tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/1/*))'
+{
+  "descriptor": "wsh(sortedmulti(1,tpubD6NzVbkrYhZ4XHrdqLmXDCx7nvdEo1wSWuQqBSJwMp2TyLtGGRDi48MatS3GxxnGr4ZUjtm2PCZEQ7A3H9gYSdZHDtMb2npk2ffDSxbF7yd/48'/1'/1'/1/*,[721143dc/48'/1'/2']tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/1/*))#cljqxj63",
+  "checksum": "sdw5dkct",
+  "isrange": true,
+  "issolvable": true,
+  "hasprivatekeys": true
+}
+```
+ 
+### Step 5: Recover your wallet <a name="step5"></a>
+
+Create a new descriptor wallet:
+```bash
+⟩ bitcoin-cli createwallet my_recovered_wallet false false "" false true 
+{
+  "name": "my_recovered_wallet",
+  "warning": "Empty string given as passphrase, wallet will not be encrypted.\nWallet is an experimental descriptor wallet"
+}
+```
+
+Import the receive & change descriptors into the wallet:
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet importdescriptors '[{ "desc": "wsh(sortedmulti(1,tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr/48h/1h/1h/0/*,[721143dc/48h/1h/2h]tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/0/*))#nvk258vn", "active":true, "timestamp": 0, "internal": false, "range": 1000 }, { "desc": "wsh(sortedmulti(1,tprv8ZgxMBicQKsPdppqwh6vooJ1Du7JdgkXwbp3tvGdwYE58rdVe2Q7sdjiiH7mcanBgkVX9vgNBNzcbZx35fSBK3B6Z19yK2gwh1WDhqfPmgr/48h/1h/1h/1/*,[721143dc/48h/1h/2h]tpubDD2nPnKDRg6NwikecMFyzPZRSBAKjR2FzcSe46mxWBByShLYwQ19zKpFPL8oMuuwibHXNfuRSknD22xWs7rqf9FShjm8d5SzNNTNpx3Z3kM/1/*))#sdw5dkct", "active":true, "timestamp": 0, "internal": true, "range": 1000 }]'
+[
+  {
+    "success": true,
+    "warnings": [
+      "Not all private keys provided. Some wallet functionality may return unexpected errors"
+    ]
+  },
+  {
+    "success": true,
+    "warnings": [
+      "Not all private keys provided. Some wallet functionality may return unexpected errors"
+    ]
+  }
+]
+```
+
+{{< notice info >}}
+  importdescriptors() will trigger a chain rescan to identify transactions in the wallet, which can take a long time. If you want to hasten this process, you can replace the import timestamp with a more recent timestamp (e.g. the wallet creation timestamp).
 {{< /notice >}}
 
-#### (A) Create a Send transaction
-![Sweep wallet](sweep_wallet.jpg)
+Check the wallet balance and make sure that the rescan has finished (**"scanning": false**) before moving on to the next step:
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet getwalletinfo
+{
+  "walletname": "my_recovered_wallet",
+  "walletversion": 169900,
+  "format": "sqlite",
+  "balance": 0.00088825,
+  "unconfirmed_balance": 0.00000000,
+  "immature_balance": 0.00000000,
+  "txcount": 4,
+  "keypoolsize": 3000,
+  "keypoolsize_hd_internal": 3000,
+  "paytxfee": 0.00000000,
+  "private_keys_enabled": true,
+  "avoid_reuse": false,
+  "scanning": false,
+  "descriptors": true
+}
+```
 
-#### (B) Sign and export PSBT
-![New transaction](pending_sigs.jpg)
-![Sign transaction with recovered key](sign.jpg)
-![Export PSBT](export_psbt.jpg)
+### Step 6: Spend from the wallet <a name="step6"></a>
 
-#### (C) import PSBT
-![Import PSBT](import_psbt.jpg)
+Create a Send PSBT, using a custom fee rate (2 sat/vB):
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet walletcreatefundedpsbt '[]' '{"tb1qy5l5ar3ue8xnz2zh65ntr7pvr4yqy3a5q277q7":0.00021}' 0 '{"fee_rate": 2}'
+{
+  "psbt": "cHNidP8BAH0CAAAAAT+hZVOO8niMbYnFXi1DprM2JQ2lw+SmztIPkk/LGgG8AQAAAAD9////AghSAAAAAAAAFgAUJT9OjjzJzTEoV9UmsfgsHUgCR7SF5AAAAAAAACIAIFuIRGp4N363BX/k00zXOlETDbpHJIWCNtOajd8yS4/NAAAAAAABAIkCAAAAAWkNb43bZJJ0psi+CfHHrZ3GQqgA4aNThtc85ci4yndWAQAAAAD9////AiBOAAAAAAAAIgAg3AUi2nPWUQARczY1jGmPpcpCfWgohEcMG2BWkuy+RTDRNwEAAAAAACIAICMKUFmOByMYYYyxInePfKg4wU49hSSYz5F7O54/fE3IAAAAAAEBK9E3AQAAAAAAIgAgIwpQWY4HIxhhjLEid498qDjBTj2FJJjPkXs7nj98TcgBBUdRIQKVukmo54vqwyEJibOp7VTnt8Abhn7eYR30KmY2diXzoCEDsfcAGXsFnBZ73BtU/W41TCGuyFKoBRRocWERulR9lt1SriIGApW6Sajni+rDIQmJs6ntVOe3wBuGft5hHfQqZjZ2JfOgGGt8joQwAACAAQAAgAEAAIABAAAAAAAAACIGA7H3ABl7BZwWe9wbVP1uNUwhrshSqAUUaHFhEbpUfZbdGHIRQ9wwAACAAQAAgAIAAIABAAAAAAAAAAAAAQFHUSEDeR2B9muPlujQeSzqCUT+MK7k+BMOAa6m+XdOrPdIPjQhA7bMSGL6KrzJDq3oy+NrWJj6jDZP9lwOVXTBx0ey5jBZUq4iAgN5HYH2a4+W6NB5LOoJRP4wruT4Ew4Brqb5d06s90g+NBhrfI6EMAAAgAEAAIABAACAAQAAAAIAAAAiAgO2zEhi+iq8yQ6t6Mvja1iY+ow2T/ZcDlV0wcdHsuYwWRhyEUPcMAAAgAEAAIACAACAAQAAAAIAAAAA",
+  "fee": 0.00000324,
+  "changepos": 1
+}
+```
 
-#### (D) Repeat (C)-(B) as many times as needed, then broadcast
-![Broadcast PSBT](broadcast.jpg)
+{{< notice info >}}
+  PSBT stands for Partially-Signed Bitcoin Transaction. It is defined in [BIP-0174](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki).
+{{< /notice >}}
 
-### Step 6: Clean up <a name="step6"></a>
+If you want to drain the wallet, make sure that the send amount is equal to the wallet balance, and set the **"subtractFeeFromOutputs"** option to include one or more outputs.
 
-To wipe all data used during the recovery process, each member should remove the wallet first, and then all of the keys.
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet walletcreatefundedpsbt '[]' '{"tb1qy5l5ar3ue8xnz2zh65ntr7pvr4yqy3a5q277q7":0.00088825}' 0 '{"fee_rate": 2, "subtractFeeFromOutputs":[0]}'
+```
 
-![Delete wallet](delete_wallet.jpg)
-![Select key](select_key.jpg)
-![Delete key](delete_key.jpg)
+Sign the PSBT:
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet walletprocesspsbt "cHNidP8BAH0CAAAAAT+hZVOO8niMbYnFXi1DprM2JQ2lw+SmztIPkk/LGgG8AQAAAAD9////AghSAAAAAAAAFgAUJT9OjjzJzTEoV9UmsfgsHUgCR7SF5AAAAAAAACIAIFuIRGp4N363BX/k00zXOlETDbpHJIWCNtOajd8yS4/NAAAAAAABAIkCAAAAAWkNb43bZJJ0psi+CfHHrZ3GQqgA4aNThtc85ci4yndWAQAAAAD9////AiBOAAAAAAAAIgAg3AUi2nPWUQARczY1jGmPpcpCfWgohEcMG2BWkuy+RTDRNwEAAAAAACIAICMKUFmOByMYYYyxInePfKg4wU49hSSYz5F7O54/fE3IAAAAAAEBK9E3AQAAAAAAIgAgIwpQWY4HIxhhjLEid498qDjBTj2FJJjPkXs7nj98TcgBBUdRIQKVukmo54vqwyEJibOp7VTnt8Abhn7eYR30KmY2diXzoCEDsfcAGXsFnBZ73BtU/W41TCGuyFKoBRRocWERulR9lt1SriIGApW6Sajni+rDIQmJs6ntVOe3wBuGft5hHfQqZjZ2JfOgGGt8joQwAACAAQAAgAEAAIABAAAAAAAAACIGA7H3ABl7BZwWe9wbVP1uNUwhrshSqAUUaHFhEbpUfZbdGHIRQ9wwAACAAQAAgAIAAIABAAAAAAAAAAAAAQFHUSEDeR2B9muPlujQeSzqCUT+MK7k+BMOAa6m+XdOrPdIPjQhA7bMSGL6KrzJDq3oy+NrWJj6jDZP9lwOVXTBx0ey5jBZUq4iAgN5HYH2a4+W6NB5LOoJRP4wruT4Ew4Brqb5d06s90g+NBhrfI6EMAAAgAEAAIABAACAAQAAAAIAAAAiAgO2zEhi+iq8yQ6t6Mvja1iY+ow2T/ZcDlV0wcdHsuYwWRhyEUPcMAAAgAEAAIACAACAAQAAAAIAAAAA"
+{
+  "psbt": "cHNidP8BAH0CAAAAAT+hZVOO8niMbYnFXi1DprM2JQ2lw+SmztIPkk/LGgG8AQAAAAD9////AghSAAAAAAAAFgAUJT9OjjzJzTEoV9UmsfgsHUgCR7SF5AAAAAAAACIAIFuIRGp4N363BX/k00zXOlETDbpHJIWCNtOajd8yS4/NAAAAAAABAIkCAAAAAWkNb43bZJJ0psi+CfHHrZ3GQqgA4aNThtc85ci4yndWAQAAAAD9////AiBOAAAAAAAAIgAg3AUi2nPWUQARczY1jGmPpcpCfWgohEcMG2BWkuy+RTDRNwEAAAAAACIAICMKUFmOByMYYYyxInePfKg4wU49hSSYz5F7O54/fE3IAAAAAAEBK9E3AQAAAAAAIgAgIwpQWY4HIxhhjLEid498qDjBTj2FJJjPkXs7nj98TcgBCJIDAEcwRAIgPuM79gZVfjHUN2HMALr3rpEge7g5/xH85vOHo0P08BACIA7MIHNhhlVDcK7FMkmUz+5CRie10ctvLoNVALS+o1BAAUdRIQKVukmo54vqwyEJibOp7VTnt8Abhn7eYR30KmY2diXzoCEDsfcAGXsFnBZ73BtU/W41TCGuyFKoBRRocWERulR9lt1SrgAAAQFHUSEDeR2B9muPlujQeSzqCUT+MK7k+BMOAa6m+XdOrPdIPjQhA7bMSGL6KrzJDq3oy+NrWJj6jDZP9lwOVXTBx0ey5jBZUq4iAgN5HYH2a4+W6NB5LOoJRP4wruT4Ew4Brqb5d06s90g+NBhrfI6EMAAAgAEAAIABAACAAQAAAAIAAAAiAgO2zEhi+iq8yQ6t6Mvja1iY+ow2T/ZcDlV0wcdHsuYwWRhyEUPcMAAAgAEAAIACAACAAQAAAAIAAAAA",
+  "complete": true
+}
+```
+
+If the transaction has enough signatures, it will say **"complete": true**.
+
+Finalize the PSBT:
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet finalizepsbt "cHNidP8BAH0CAAAAAT+hZVOO8niMbYnFXi1DprM2JQ2lw+SmztIPkk/LGgG8AQAAAAD9////AghSAAAAAAAAFgAUJT9OjjzJzTEoV9UmsfgsHUgCR7SF5AAAAAAAACIAIFuIRGp4N363BX/k00zXOlETDbpHJIWCNtOajd8yS4/NAAAAAAABAIkCAAAAAWkNb43bZJJ0psi+CfHHrZ3GQqgA4aNThtc85ci4yndWAQAAAAD9////AiBOAAAAAAAAIgAg3AUi2nPWUQARczY1jGmPpcpCfWgohEcMG2BWkuy+RTDRNwEAAAAAACIAICMKUFmOByMYYYyxInePfKg4wU49hSSYz5F7O54/fE3IAAAAAAEBK9E3AQAAAAAAIgAgIwpQWY4HIxhhjLEid498qDjBTj2FJJjPkXs7nj98TcgBCJIDAEcwRAIgPuM79gZVfjHUN2HMALr3rpEge7g5/xH85vOHo0P08BACIA7MIHNhhlVDcK7FMkmUz+5CRie10ctvLoNVALS+o1BAAUdRIQKVukmo54vqwyEJibOp7VTnt8Abhn7eYR30KmY2diXzoCEDsfcAGXsFnBZ73BtU/W41TCGuyFKoBRRocWERulR9lt1SrgAAAQFHUSEDeR2B9muPlujQeSzqCUT+MK7k+BMOAa6m+XdOrPdIPjQhA7bMSGL6KrzJDq3oy+NrWJj6jDZP9lwOVXTBx0ey5jBZUq4iAgN5HYH2a4+W6NB5LOoJRP4wruT4Ew4Brqb5d06s90g+NBhrfI6EMAAAgAEAAIABAACAAQAAAAIAAAAiAgO2zEhi+iq8yQ6t6Mvja1iY+ow2T/ZcDlV0wcdHsuYwWRhyEUPcMAAAgAEAAIACAACAAQAAAAIAAAAA"
+{
+  "hex": "020000000001013fa165538ef2788c6d89c55e2d43a6b336250da5c3e4a6ced20f924fcb1a01bc0100000000fdffffff020852000000000000160014253f4e8e3cc9cd312857d526b1f82c1d480247b485e40000000000002200205b88446a78377eb7057fe4d34cd73a51130dba4724858236d39a8ddf324b8fcd030047304402203ee33bf606557e31d43761cc00baf7ae91207bb839ff11fce6f387a343f4f01002200ecc20736186554370aec5324994cfee424627b5d1cb6f2e835500b4bea35040014751210295ba49a8e78beac3210989b3a9ed54e7b7c01b867ede611df42a66367625f3a02103b1f700197b059c167bdc1b54fd6e354c21aec852a8051468716111ba547d96dd52ae00000000",
+  "complete": true
+}
+```
+
+Broadcast the raw transaction to the network:
+```bash
+⟩ bitcoin-cli -rpcwallet=my_recovered_wallet sendrawtransaction "020000000001013fa165538ef2788c6d89c55e2d43a6b336250da5c3e4a6ced20f924fcb1a01bc0100000000fdffffff020852000000000000160014253f4e8e3cc9cd312857d526b1f82c1d480247b485e40000000000002200205b88446a78377eb7057fe4d34cd73a51130dba4724858236d39a8ddf324b8fcd030047304402203ee33bf606557e31d43761cc00baf7ae91207bb839ff11fce6f387a343f4f01002200ecc20736186554370aec5324994cfee424627b5d1cb6f2e835500b4bea35040014751210295ba49a8e78beac3210989b3a9ed54e7b7c01b867ede611df42a66367625f3a02103b1f700197b059c167bdc1b54fd6e354c21aec852a8051468716111ba547d96dd52ae00000000"
+b91276af8b6f5ede632aadfb87bf8a9209a43d0a030396cd0c4629a1ec92b87a
+```
+
+{{< notice tip >}}
+  This guide can be easily adjusted for collaborative wallets. Similar to [our other recovery guide]({{< ref "/wallet-recovery/collab-wallet/" >}}), each member of the collaborative wallet will need to sync their own full node, extract their master key(s) from their seed phrase(s), and create their own Core descriptor wallet. They would also need to exchange PSBTs out-of-band and individually sign using the **walletprocesspsbt** RPC command.
+{{< /notice >}}
+
+### Step 7: Clean up <a name="step7"></a>
+
+To wipe all data used during the recovery process, open your Core **datadir** and find the wallet folder inside. It should have the same name as the wallet and contain a **wallet.dat** file.
+
+Delete the wallet folder and empty it from the Trash bin.
+
+
 
 
 

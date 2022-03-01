@@ -25,18 +25,18 @@ To recover a personal wallet, you will need:
 * The **seed phrase(s)** for your key(s)
 * The **wallet configuration file**
 
-**The number of seed phrases you will need is the same as the number of signatures required to unlock the wallet.** For examples: for a singlesig wallet, you will need exactly 1 seed phrase; for a 2-of-3 multisig wallet, you will need 2 seed phrases.
+**The number of seed phrases you will need is equal to the number of signatures required to unlock the wallet.** For examples: for a singlesig wallet, you will need exactly 1 seed phrase; for a 2-of-3 multisig wallet, you will need 2 seed phrases.
 
 {{< notice info >}}
-  Seed phrases are defined in [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
+  Seed phrases are backups for your keys. They are defined in [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 {{< /notice >}}
 
 {{< notice info >}}
-  The wallet configuration file has a .bsms extension and is defined in [BIP-0129](https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki).
+  The wallet configuration file contains important information on how your wallet is constructed. It is defined in [BIP-0129](https://github.com/bitcoin/bips/blob/master/bip-0129.mediawiki).
 {{< /notice >}}
 
 {{< notice note >}}
-  For simplicity, this is a "clean slate" recovery. It assumes that the user has nothing else but the seed phrases and the wallet configuration file. It uses Guest mode, which does not require an account. It also assumes that there are no hardware keys that survive from the original setup. If there are hardware keys, simply pair the hardware keys with Nunchuk in step 3 (instead of recovering).
+  For simplicity, this is a "clean slate" recovery. It assumes that the user has nothing other than the seed phrases and the wallet configuration file. It uses Guest mode, which does not require an account. It also assumes that there are no hardware keys that survive from the original setup. If there are hardware keys, simply pair the hardware keys with Nunchuk in step 3 (instead of recovering).
 {{< /notice >}}
 
 {{< notice note >}}
@@ -87,7 +87,7 @@ Hurrah, you have fully recovered the wallet! You can now proceed to withdraw you
 Create a Send transaction, sign it with your recovered key(s), and wait for the transaction to confirm on the blockchain.
 
 {{< notice warning >}}
-  When signing, please make sure that all transaction data, such as destination address and transaction fee, are legitimate.
+  When signing, please make sure that all transaction data, such as destination address and transaction fee, are accurate.
 {{< /notice >}}
 
 {{< notice note >}}

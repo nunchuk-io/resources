@@ -17,15 +17,15 @@ unsafe = true
 ############################# Default Parameters ##########################
 [params]
 # logo is for all page
-logo = "images/Horizontal-Logo-2.1.png"
+logo = "images/resource-logo-blue.svg"
 # logo white is for homepage logo, you can use colorful logo too...
-logo_white = "images/Horizontal-Logo-2.png"
+logo_white = "images/resource-logo-yellow.svg"
 # when logo is empty, it will shown your site title
 
 # OpenGraph / Twitter Card metadata
 description = "Nunchuk – The safest and most advanced self-custody solution for your bitcoin"
 author = "hugo"
-image = "images/Horizontal-Logo-2.png" # this image will be used as fallback if a page has no image of its own
+image = "images/twitter-card.jpg" # this image will be used as fallback if a page has no image of its own
 
 # customize color
 primary_color = "#031f2b"
@@ -79,10 +79,10 @@ copyright = "©2021 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
-title = "Support Center & Knowledge Base"
+title = "Resource Center & Knowledge Base"
 subtitle = "Find answers from our team quickly or get in touch"
 bg_image = ""
-placeholder = "Enter your search keywords here"
+placeholder = "Search how-tos and more"
 
 # call to action
 [Languages.en.params.cta]

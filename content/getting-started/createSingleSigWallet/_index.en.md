@@ -1,5 +1,5 @@
 ---
-title: "Creating a Wallet"
+title: "Creating a SingleSig Wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
 weight: 3

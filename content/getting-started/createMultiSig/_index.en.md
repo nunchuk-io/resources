@@ -27,7 +27,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 <img src = chooseKeys.png
     alt = "Choose the keys to associate with wallet (Screenshot)"/>
 
-4. Assign the key(s) you selected to the wallet by clicking the "Assign To Wallet" button. You should see the key(s) listed on the right side now under "Key Configuration"
+4. Assign the keys you selected to the wallet by clicking the "Assign To Wallet" button. You should see the keys listed on the right side now under "Key Configuration"
 
 <img src = assignToWallet.png
     alt = "Assign to Wallet button (Screenshot)"
@@ -54,4 +54,8 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 
 <img src = downloadBSMSFile.png 
     alt = "Download wallet backup (Screenshot)"/>
+
+{{< notice note >}}
+This backup file strictly contains information about the wallet. This means access to this file could be used to <u>see</u> the wallet's funds but not to <u>spend</u> from the wallet.
+{{< /notice >}}
 

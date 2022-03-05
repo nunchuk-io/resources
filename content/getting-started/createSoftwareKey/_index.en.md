@@ -34,7 +34,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 4. Copy down your seed on a piece of paper. Once done, you can proceed to the next screen.
 
 {{< notice tip >}}
-If you're planning on using and storing your key long-term, a metal plate may your next step!
+If you're planning on using and storing your key long-term, a metal plate may be a good next step!
 {{< /notice>}}
 
 5. Answer the 3 questions to prove that you have correctly copied your seed.

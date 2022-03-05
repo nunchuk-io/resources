@@ -49,7 +49,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
     alt = "Confirm wallet details (Screenshot)"/>
 
 {{< notice warning >}}
-  You will be prompted to backup your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) File. This is a highly recommended step as there are many ways to create a wallet from a single seed. You can read more about that <u> __[here](https://walletsrecovery.org/)__ </u>.
+  You will be prompted to back up your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) File. Even if you only create a single-sig wallet (the wallet has only one key), this is a highly recommended step as there are many ways to create a wallet from a single seed. You can read more about that <u> __[here](https://walletsrecovery.org/)__ </u>.
 {{< /notice >}}
 
 8. Proceed past the backup screen. You should now see your new wallet in the "Wallets" section of the app.

@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
- You should have at least *two* keys in your account. If you need help creating keys click [here](/getting-started/createsoftwarekey/)
+ You should have at least *two* keys in your account. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
 {{< /notice >}}
 
 1. Click the + symbol next to "Wallets" to add a key.

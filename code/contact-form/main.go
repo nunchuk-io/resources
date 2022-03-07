@@ -56,11 +56,6 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 
 	submission.Date = time.Now()
 
-	bytes, err := json.Marshal(submission)
-	if err != nil {
-		return "", err
-	}
-
 	hCaptchaClient := hcaptcha.New(os.Getenv("HCAPTCHA_SECRET_KEY"))
 	if captchaResp := hCaptchaClient.VerifyToken(submission.HCaptchaResponse); !captchaResp.Success {
 		return "", fmt.Errorf("invalid captcha: %v", captchaResp.ErrorCodes)
@@ -68,6 +63,11 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 
 	// Remove hcaptcha when send email
 	submission.HCaptchaResponse = ""
+	bytes, err := json.Marshal(submission)
+
+	if err != nil {
+		return "", err
+	}
 
 	// Create a new session in the ap-southeast-1 region.
 	// Replace ap-southeast-1 with the AWS Region you're using for Amazon SES.

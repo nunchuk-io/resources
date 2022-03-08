@@ -75,14 +75,14 @@ link = "https://join.slack.com/t/nunchukio/shared_invite/zt-xqdlvl5g-xKKohQu_R7I
 languageName = "En"
 languageCode = "en-us"
 weight = 1
-copyright = "©2021 Nunchuk. All rights reserved."
+copyright = "©2022 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
-title = "Resource Center & Knowledge Base"
+title = "How can we help?"
 subtitle = "Find answers from our team quickly or get in touch"
 bg_image = ""
-placeholder = "Search how-tos and more"
+placeholder = "Enter your search keywords here"
 
 # call to action
 [Languages.en.params.cta]

@@ -1,5 +1,5 @@
 ---
-title: "Creating a Wallet"
+title: "Creating a single-signature (singlesig) wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
 weight: 3
@@ -22,7 +22,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 <img src = walletConfig.png
     alt = "Add wallet name and description (Screenshot)"/>
 
-3. Click the boxes of the keys you want to associate with your wallet. 
+3. Click the checkbox of the keys you want to associate with your wallet. 
 
 <img src = chooseKeys.png
     alt = "Choose the keys to associate with wallet (Screenshot)"/>

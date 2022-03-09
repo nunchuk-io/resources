@@ -4,7 +4,7 @@ baseURL = "https://nunchuk.io"
 # theme
 theme = "dot-hugo"
 # site title
-title = "Nunchuk"
+title = "Nunchuk Resources"
 # disable language
 disableLanguages = ["fr"]
 # google analytics
@@ -23,7 +23,7 @@ logo_white = "images/resource-logo-yellow.svg"
 # when logo is empty, it will shown your site title
 
 # OpenGraph / Twitter Card metadata
-description = "Nunchuk – The safest and most advanced self-custody solution for your bitcoin"
+description = "Nunchuk Help & Resources"
 author = "hugo"
 image = "images/twitter-card.jpg" # this image will be used as fallback if a page has no image of its own
 
@@ -79,7 +79,7 @@ copyright = "©2022 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
-title = "How can we help?"
+title = "Nunchuk Help & Resources"
 subtitle = "Find answers from our team quickly or get in touch"
 bg_image = ""
 placeholder = "Enter your search keywords here"

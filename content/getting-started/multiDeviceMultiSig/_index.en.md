@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like to require the signing of transactions from multiple devices. In this workflow, we will be using a laptop, desktop, and mobile phone to create a 3 of 3 wallet. You can also use this workflow as a template to easily create a 2 of 2 wallet where you're required to sign a transaction from your desktop and your phone.
+This tutorial is for someone that would like to require the signing of transactions from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 3 of 3 wallet. You can also use this workflow as a template to easily create a 2 of 2 wallet where you're required to sign a transaction from your desktop and your phone.
 {{< /notice >}}
 
 {{< notice info >}}
@@ -17,59 +17,155 @@ You must be signed in to your account in order to access the messaging system. <
 You will need a key on each of the devices you wish to use in this wallet. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
 {{</ notice >}}
 
-<!-- {{< tabs >}}
+{{< tabs >}}
 
-  {{< tab "Desktop" >}} -->
+  {{< tab "Desktop" >}}
   
-1. Open the chat feature located on the left side bar.
+1. Open the chat feature located on the left side bar. <br/><br/>
     
-<img src = chatButton.png
+<img src = desktopChatButton.png
+    alt = "Chat Button (Screenshot)"/>
+
+2. Click the "Start new message" button and type in your user email. You should see your name and email pop up below, click it!<br/><br/>
+
+<img src = desktopStartNewMessage.png
+    alt = "start new message button (Screenshot)"/>
+<img src = desktopNameSelected.png
+    alt = "Name selected (Screenshot)"/>
+
+3. Send a friendly message to yourself to initiate the chat room. After sending the message, you should see a new chat room with yourself!<br/><br/>
+
+<img src = desktopJoinedChatRoom.png
     alt = "Wallet + button (Screenshot)"/>
 
-2. Click the "Start new message" button and type in your user email. You should see your name and email pop up below, click it!
+4. Click the "Create a collaborative wallet" button to initiate the multisig configuration setup.<br/>
+<!-- Will need to update this image with new screenshot after fix -->
+<img src = desktopCreateCollabWalletBttn.png
+    alt = "collaborative wallet question (Screenshot)"/>
 
-<img src = startNewMessage.png
-    alt = "Wallet + button (Screenshot)"/>
-<img src = nameSelected.png
-    alt = "Wallet + button (Screenshot)"/>
-
-3. Send a friendly message to yourself to initiate the chat room. After sending the message, you should see a new chat room with yourself!
-
-<img src = joinedChatRoom.png
-    alt = "Wallet + button (Screenshot)"/>
-
-4. Click the "Create a collaborative wallet" button to initiate the multisig configuration setup.
-
-<img src = createCollabWalletBttn.png
-    alt = "Wallet + button (Screenshot)"/>
-
-5. Name your wallet and click "Continue".
+5. Name your wallet and click "Continue".<br/><br/>
     
-<img src = walletName.png
-    alt = "Wallet + button (Screenshot)"/>
+<img src = desktopWalletName.png
+    alt = "Create collaborative wallet view (Screenshot)"/>
 
-6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.
+6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.<br/><br/>
 
-<img src = walletConfig.png
-    alt = "">
+<img src = desktopWalletConfig.png
+    alt = "Configure collaborative wallet (Screenshot)">
 
-7. Be sure to check your configuration before clicking "Continue".
+7. Be sure to check your configuration before clicking "Continue".<br/><br/>
 
-<img src = currentConfig.png
-    alt = "">
+<img src = desktopCurrentConfig.png
+    alt = "your current configuration (Screenshot)">
 
-8. You can now review other properties of your wallet configuration, then continue.
+8. You can now review other properties of your wallet configuration, then continue.<br/><br/>
 
-<img src = reviewWallet.png
-    alt = "">
+<img src = desktopReviewWallet.png
+    alt = "Review collaborative wallet (Screenshot)">
 
-9. Assign the keys that are required for signing wallet transactions, and then continue.
+9. Assign the keys that are required for signing wallet transactions, and then continue.<br/><br/>
 
-<img src = assignKeys.png
-    alt = "">
+<img src = desktopAssignKeys.png
+    alt = "Assign key (Screenshot)">
 
 {{< notice tip >}}
 The key in green (Software) is an eligible key to sign with for your current device. Foreign keys are not eligible for signing locally and will need to be signed on the device they were imported or created on.
 {{< /notice >}}
 
-10. 
+{{< notice note >}}
+You may be required to add the keys on the device they were imported locally to. If that is the case, proceed to step 10.
+{{< /notice >}}
+
+<img src = desktopErrorAddingKeys.png
+    alt = "adding key error (Screenshot)">
+
+10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
+
+<img src = desktopSelectKey.png
+    alt = "Assign Key Desktop (Screenshot)">
+
+11. You should now see the original chat screen you created in step 2. This is where you can find the pending wallet configuration.<br/><br/>
+
+<img src = desktopConfigDone.png
+    alt = "Chat screen pending keys (Screenshot)">
+
+{{< notice tip >}}
+You will need to access this chat screen and configuration file to complete your setup.<br/><br/>
+{{< /notice>}}
+
+{{< /tab >}}
+
+{{< tab "Laptop" >}}
+
+{{< notice note >}}
+It is assumed that you have finished the desktop workflow and have a pending wallet config in your chat screen. If you do not, please refer to the Desktop tab.
+{{< /notice >}}
+
+1. Sign into your laptop and open Nunchuk. If you need help installing, refer to the install documentation found <u> [here](/getting-started/createsoftwarekey/) </u>
+<br/><br/>
+2. Navigate to the chat screen. There you should see the pending wallet notification. Click the "View config" button.<br/><br/>
+
+<img src = laptopConfigNote.png
+    alt = "pending keys config note (Screenshot)">
+
+3. Here you see the number of current keys assigned among other information about the wallet. Click the "Continue to assign keys" button.<br/><br/>
+
+<img src = laptopWalletConfig.png
+    alt = "wallet configuration (Screenshot)">
+
+4. You can now assign the key stored locally on your laptop. Notice that the other two keys are considered foreign and your local key is recognized as a "SOFTWARE" key.<br/><br/>
+
+<img src = laptopAssignKey.png
+    alt = "assign key configuration (Screenshot)">
+
+5. After assigning your key, click the "Continue" button. You should now be returned to the chat screen and see that your config notification is now only pending 1 key.<br/><br/>
+
+<img src = laptopPendingKeys.png
+    alt = "pending keys (Screenshot)">
+
+6. Continue to your next device!
+
+{{< /tab >}}
+
+{{< tab "Mobile" >}}
+
+1. Open your Nunchuk mobile app and navigate to the chat screen. You should see your wallet config notification here waiting for the last key!<br/><br/>
+
+<img src = mobileChatScreen.png
+    alt = "mobile app chat screen (Screenshot)">
+
+2. Click on the "View config" button.<br/><br/>
+
+3. Click the "Continue to assign keys" button at the bottom of the screen.<br/><br/>
+
+<img src = mobileContinueAssignKeys.png
+    alt = "Wallet configuration (Screenshot)">
+
+4. You can now assign the last key (in my case, it is the Mobile Key).<br/><br/>
+
+5. Click the "Assign keys and send invite" to finalize your wallet with the last key.<br/><br/>
+
+<img src = mobileAssignKeysSendInvite.png
+    alt = "assign keys and send invite (Screenshot)">
+
+6. You should be returned to the chat screen. You should now see the wallet config notification says "Pending finalization". On any of your devices you can open the config again by clicking the "View Config" and then the "Finalize wallet" button!<br/><br/>
+
+<img src = mobileAllKeysAssigned.png
+    alt = "mobile phone chat screen (Screenshot)"
+    style = "float: left"/>
+
+<img src = desktopFinalizeWallet.png
+    alt = "finalize wallet (Screenshot)">
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+7. You will see all of the keys associated with the wallet and other important information. Click the "Finalize wallet" button once you're sure everything is correct.<br/><br/>
+
+<img src = desktopFinalizeWalletConfig.png
+    alt = "desktop wallet config (Screenshot)">
+
+8. You're all done! You should see your wallet on the main screen.
+
+
+{{< /tab >}}
+{{</ tabs >}}

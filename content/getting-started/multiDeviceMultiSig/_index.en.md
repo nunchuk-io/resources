@@ -1,5 +1,5 @@
 ---
-title: "Creating a MultiDevice MultiSig Wallet"
+title: "Creating a self-managed, multi-device multisig wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
 weight: 5
@@ -9,85 +9,67 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like to require signing of transactions from multiple devices. In this workflow, we will be using a laptop, desktop, and mobile phone to create a 3 of 3 wallet. You can also use this workflow as a template to easily create a 2 of 2 wallet where you're required to sign a transaction from your desktop and your phone.
+This tutorial is for someone that would like to require the signing of transactions from multiple devices. In this workflow, we will be using a laptop, desktop, and mobile phone to create a 3 of 3 wallet. You can also use this workflow as a template to easily create a 2 of 2 wallet where you're required to sign a transaction from your desktop and your phone.
 {{< /notice >}}
 
 {{< notice info >}}
-You must be signed in to your account in order to access the messaging system <br/>
-You will also need a key on each of the devices you wish to use in this wallet. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
+You must be signed in to your account in order to access the messaging system. <br/>
+You will need a key on each of the devices you wish to use in this wallet. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
 {{</ notice >}}
 
-{{< tabs >}}
+<!-- {{< tabs >}}
 
-  {{< tab "Desktop" >}}
+  {{< tab "Desktop" >}} -->
   
-    1. Open the chat feature located on the left side bar.
-    <br/>
-    2. Click the "Start new message" button and type in your user email.
-    <br/>
-    3. Send a friendly message to yourself to initiate the chat room.
-    <br/>
-    4. 
-    <br/>
+1. Open the chat feature located on the left side bar.
+    
+<img src = chatButton.png
+    alt = "Wallet + button (Screenshot)"/>
 
+2. Click the "Start new message" button and type in your user email. You should see your name and email pop up below, click it!
 
+<img src = startNewMessage.png
+    alt = "Wallet + button (Screenshot)"/>
+<img src = nameSelected.png
+    alt = "Wallet + button (Screenshot)"/>
 
-  {{< /tab >}}
+3. Send a friendly message to yourself to initiate the chat room. After sending the message, you should see a new chat room with yourself!
 
-  {{< tab "Laptop" >}}
-  this is second tab
-  {{< /tab >}}
+<img src = joinedChatRoom.png
+    alt = "Wallet + button (Screenshot)"/>
 
-  {{< tab "Mobile" >}}
-  this is third tab
-  {{< /tab >}}
+4. Click the "Create a collaborative wallet" button to initiate the multisig configuration setup.
 
-{{</ tabs >}}
+<img src = createCollabWalletBttn.png
+    alt = "Wallet + button (Screenshot)"/>
 
-<!-- 1. Click the + symbol next to "Wallets" to add a key.
+5. Name your wallet and click "Continue".
+    
+<img src = walletName.png
+    alt = "Wallet + button (Screenshot)"/>
 
-<img src = addNewWallet.png
-      alt = "Wallet + button (Screenshot)"/>
+6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.
 
-2. Name your wallet, give it a description (optional), and then proceed to the next screen.
+<img src = walletConfig.png
+    alt = "">
 
-<img src = multisigWalletConfig.png
-    alt = "Add wallet name and description (Screenshot)"/>
+7. Be sure to check your configuration before clicking "Continue".
 
-3. Click the checkbox of the keys you want to associate with your wallet.
+<img src = currentConfig.png
+    alt = "">
 
-<img src = chooseKeys.png
-    alt = "Choose the keys to associate with wallet (Screenshot)"/>
+8. You can now review other properties of your wallet configuration, then continue.
 
-4. Assign the keys you selected to the wallet by clicking the "Assign To Wallet" button. You should see the keys listed on the right side now under "Key Configuration"
+<img src = reviewWallet.png
+    alt = "">
 
-<img src = assignToWallet.png
-    alt = "Assign to Wallet button (Screenshot)"
-    style = "float: left"/>
+9. Assign the keys that are required for signing wallet transactions, and then continue.
 
-<img src = assignedKeys.png 
-    alt = "Assigned keys (Screenshot)"
-    style = "float: center"/>
+<img src = assignKeys.png
+    alt = "">
 
-
-5. Add the number of signatures (keys) required to sign/send a transaction. You can only require as many keys that you have associated with the wallet. Each key required is a signer for the transaction.
-
-<img src = requiredSignatures.png
-    alt = "Required signature (Screenshot)"/>
-
-6. Proceed to the next screen by clicking "Next: Review Wallet" and confirm the details of the wallet. Finalize your wallet by clicking the "Create Wallet" button.
-
-<img src = confirmWalletDetails.png 
-    alt = "Confirm wallet details (Screenshot)"/>
-
-{{< notice warning >}}
-  You will be prompted to backup your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) File. This is highly recommended for a multisignature wallet. In order to recreate a multisig wallet you are required to have either the BSMS file *OR* all the keys that are associated with it. Put simply, if you create a 2 of 3 and lose one of the keys, you would need all 3 keys to recreate the wallet in order to recreate the wallet and sign a transaction. If you do not have a backup or a working wallet, you risk losing access to your funds forever.
+{{< notice tip >}}
+The key in green (Software) is an eligible key to sign with for your current device. Foreign keys are not eligible for signing locally and will need to be signed on the device they were imported or created on.
 {{< /notice >}}
 
-<img src = downloadBSMSFile.png 
-    alt = "Download wallet backup (Screenshot)"/> -->
-
-{{< notice note >}}
-This backup file strictly contains information about the wallet. This means access to this file could be used to <u>see</u> the wallet's funds but not to <u>spend</u> from the wallet.
-{{< /notice >}}
-
+10. 

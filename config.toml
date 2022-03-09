@@ -100,7 +100,7 @@ link = "contact/"
 [Languages.en.params.cta.button]
 enable = true
 label = "GitHub"
-link = "github/"
+link = "https://github.com/nunchuk-io/resources"
 
 ################## english navigation #################
 [[Languages.en.menu.main]]

@@ -17,15 +17,15 @@ unsafe = true
 ############################# Default Parameters ##########################
 [params]
 # logo is for all page
-logo = "images/Horizontal-Logo-2.1.png"
+logo = "images/resource-logo-blue.svg"
 # logo white is for homepage logo, you can use colorful logo too...
-logo_white = "images/Horizontal-Logo-2.png"
+logo_white = "images/resource-logo-yellow.svg"
 # when logo is empty, it will shown your site title
 
 # OpenGraph / Twitter Card metadata
 description = "Nunchuk – The safest and most advanced self-custody solution for your bitcoin"
 author = "hugo"
-image = "images/Horizontal-Logo-2.png" # this image will be used as fallback if a page has no image of its own
+image = "images/twitter-card.jpg" # this image will be used as fallback if a page has no image of its own
 
 # customize color
 primary_color = "#031f2b"
@@ -75,11 +75,11 @@ link = "https://join.slack.com/t/nunchukio/shared_invite/zt-xqdlvl5g-xKKohQu_R7I
 languageName = "En"
 languageCode = "en-us"
 weight = 1
-copyright = "©2021 Nunchuk. All rights reserved."
+copyright = "©2022 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
-title = "Support Center & Knowledge Base"
+title = "How can we help?"
 subtitle = "Find answers from our team quickly or get in touch"
 bg_image = ""
 placeholder = "Enter your search keywords here"
@@ -89,12 +89,12 @@ placeholder = "Enter your search keywords here"
 enable = true
 title = "Didn't find an answer to your question?"
 content = ""
+
 # call to action button
 [Languages.en.params.cta.button]
 enable = true
 label = "contact us"
 link = "contact/"
-
 
 ################## english navigation #################
 [[Languages.en.menu.main]]
@@ -105,7 +105,7 @@ weight = 1
     hrefTargetBlank = true
 
 [[Languages.en.menu.main]]
-name = "Faq"
+name = "FAQ"
 url = "faq/"
 weight = 2
 
@@ -113,3 +113,10 @@ weight = 2
 name = "Contact"
 url = "contact/"
 weight = 3
+
+[[Languages.en.menu.main]]
+name = "GitHub"
+url = "https://github.com/nunchuk-io/resources"
+weight = 4
+     [Languages.en.menu.main.params]
+    hrefTargetBlank = true

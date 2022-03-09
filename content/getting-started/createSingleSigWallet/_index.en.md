@@ -1,5 +1,5 @@
 ---
-title: "Creating a SingleSig Wallet"
+title: "Creating a single-signature (singlesig) wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
 weight: 3

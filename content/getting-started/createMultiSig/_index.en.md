@@ -1,5 +1,5 @@
 ---
-title: "Creating a MultiSig Wallet"
+title: "Creating a multi-signature (multisig) wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
 weight: 4
@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
- You should have at least *two* keys in your account. If you need help creating keys click [here](/getting-started/createsoftwarekey/)
+ You should have at least *two* keys in your account. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/).</u>
 {{< /notice >}}
 
 1. Click the + symbol next to "Wallets" to add a key.
@@ -27,7 +27,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 <img src = chooseKeys.png
     alt = "Choose the keys to associate with wallet (Screenshot)"/>
 
-4. Assign the keys you selected to the wallet by clicking the "Assign To Wallet" button. You should see the keys listed on the right side now under "Key Configuration"
+4. Assign the keys you selected to the wallet by clicking the "Assign To Wallet" button. You should see the keys listed on the right side now under "Key Configuration."
 
 <img src = assignToWallet.png
     alt = "Assign to Wallet button (Screenshot)"
@@ -49,13 +49,13 @@ keywords: ["mac, macos, windows, linux, ios, android"]
     alt = "Confirm wallet details (Screenshot)"/>
 
 {{< notice warning >}}
-  You will be prompted to backup your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) File. This is highly recommended for a multisignature wallet. In order to recreate a multisig wallet you are required to have either the BSMS file *OR* all the keys that are associated with it. Put simply, if you create a 2 of 3 and lose one of the keys, you would need all 3 keys to recreate the wallet in order to recreate the wallet and sign a transaction. If you do not have a backup or a working wallet, you risk losing access to your funds forever.
+  You will be prompted to back up your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) file. This is highly recommended for a multisignature wallet. There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
 {{< /notice >}}
 
 <img src = downloadBSMSFile.png 
     alt = "Download wallet backup (Screenshot)"/>
 
 {{< notice note >}}
-This backup file strictly contains information about the wallet. This means access to this file could be used to <u>see</u> the wallet's funds but not to <u>spend</u> from the wallet.
+This backup file strictly contains information about the wallet. This means access to this file could be used to <u>track</u> the wallet's funds but not to <u>spend</u> from the wallet.
 {{< /notice >}}
 

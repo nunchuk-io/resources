@@ -282,7 +282,7 @@ pre {
 }
 
 .navbar {
-  padding: 0;
+  padding: 12px 0;
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -296,7 +296,7 @@ pre {
 }
 
 .navbar-brand img {
-  max-height: 48px;
+  max-height: 36px;
   margin-bottom: 0;
 }
 

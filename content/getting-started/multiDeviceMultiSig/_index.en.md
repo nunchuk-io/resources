@@ -164,7 +164,14 @@ It is assumed that you have finished the desktop workflow and have a pending wal
 <img src = desktopFinalizeWalletConfig.png
     alt = "desktop wallet config (Screenshot)">
 
-8. You're all done! You should see your wallet on the main screen.
+8. You're all done! You should see your wallet on the main screen.<br/><br/>
+
+<img src = desktopCompletedMultiSig.png
+    alt = "desktop chat screen (Screenshot)">
+
+{{< notice tip >}}
+It is highly recommended to back up your wallet (noted in red, above). There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
+{{< /notice>}}
 
 
 {{< /tab >}}

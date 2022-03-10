@@ -6,9 +6,9 @@ theme = "dot-hugo"
 # site title
 title = "Nunchuk Resources"
 # disable language
-disableLanguages = ["fr"]
+#disableLanguages = ["fr"]
 # google analytics
-googleAnalytics = "" # paste your analytics ID here. (Ex: UA-123-45)
+googleAnalytics = "G-KH7ZJH6RYF" # paste your analytics ID here. (Ex: UA-123-45)
 # unsafe html
 [markup.goldmark.renderer]
 unsafe = true

@@ -94,6 +94,7 @@ h6,
   background: var(--primary-color);
     border-radius: 48px;
     opacity: 0.9;
+    box-shadow: 0 0 0 2px #000000, 0 0 0 4px rgba(34, 34, 34, 0.5);
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,
@@ -814,6 +815,10 @@ code {
   top: -5px;
 }
 
+.back-btn::hover{
+  transform: scale(1.5);
+}
+
 .ui-autocomplete-input {
   border-bottom: 1px solid rgb(212, 212, 212) !important;
   padding-right: 50px;
@@ -828,7 +833,7 @@ code {
   position: absolute;
   right: 20px;
   top: 18px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 i {
@@ -894,4 +899,16 @@ pre code::-webkit-scrollbar-thumb {
 
 .code-tabs .nav-tabs .nav-item.active .nav-link {
   color: var(--white-color);
+}
+
+/*Custom CSS override*/
+
+/*homepage-card*/
+.px-4 py-5 bg-white shadow text-center d-block match-height{
+     border-radius: 24px;
+}
+
+/*center-card*/
+.section px-3 bg-white shadow text-center{
+    border-radius: 24px;
 }

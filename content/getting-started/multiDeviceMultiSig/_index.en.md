@@ -9,12 +9,12 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like to require the signing of transactions from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 3 of 3 wallet. You can also use this workflow as a template to easily create a 2 of 2 wallet where you're required to sign a transaction from your desktop and your phone.
+This tutorial is for someone that would like to their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2 of 3 wallet. You can also use this workflow as a template to easily create a another version of a multisig wallet.
 {{< /notice >}}
 
 {{< notice info >}}
 You must be signed in to your account in order to access the messaging system. <br/>
-You will need a key on each of the devices you wish to use in this wallet. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
+You will need to import or create a key for each of the devices you wish to use in the wallet. These wallets can exist as foreign or software keys. You only need one device to create the setup. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
 {{</ notice >}}
 
 {{< tabs >}}
@@ -63,42 +63,48 @@ You will need a key on each of the devices you wish to use in this wallet. The k
 <img src = desktopReviewWallet.png
     alt = "Review collaborative wallet (Screenshot)">
 
-9. Assign the keys that are required for signing wallet transactions, and then continue.<br/><br/>
-
-<img src = desktopAssignKeys.png
-    alt = "Assign key (Screenshot)">
+9. Assign the keys that are required for signing wallet transactions, and then continue.
 
 {{< notice tip >}}
 The key in green (Software) is an eligible key to sign with for your current device. Foreign keys are not eligible for signing locally and will need to be signed on the device they were imported or created on.
 {{< /notice >}}
 
-{{< notice note >}}
+<img src = desktopAssignKeys.png
+    alt = "Assign key (Screenshot)">
+
+
+
+<!-- {{< notice note >}}
 You may be required to add the keys on the device they were imported locally to. If that is the case, proceed to step 10.
-{{< /notice >}}
+{{< /notice >}} -->
 
-<img src = desktopErrorAddingKeys.png
-    alt = "adding key error (Screenshot)">
+<!-- <img src = desktopErrorAddingKeys.png
+    alt = "adding key error (Screenshot)"> -->
 
-10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
+<!-- 10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
 
 <img src = desktopSelectKey.png
-    alt = "Assign Key Desktop (Screenshot)">
+    alt = "Assign Key Desktop (Screenshot)"> -->
 
 11. You should now see the original chat screen you created in step 2. This is where you can find the pending wallet configuration.<br/><br/>
+
+{{< notice tip >}}
+You will need to access this chat screen and configuration file to if you did not complete your setup.
+{{< /notice>}}
 
 <img src = desktopConfigDone.png
     alt = "Chat screen pending keys (Screenshot)">
 
-{{< notice tip >}}
-You will need to access this chat screen and configuration file to complete your setup.<br/><br/>
-{{< /notice>}}
+{{< notice note >}}
+You do not need to continue to the other tabs if you were able to add all the keys to your wallet. If you want to add a key created from another device, continue to the next tab.
+{{< /notice >}}
 
 {{< /tab >}}
 
 {{< tab "Laptop" >}}
 
 {{< notice note >}}
-It is assumed that you have finished the desktop workflow and have a pending wallet config in your chat screen. If you do not, please refer to the Desktop tab.
+If you did not have all your keys available for the initial setup, you can continue from another device to continue the setup process. It is assumed that you have started to create a wallet. If you still have a pending configuration notification in your chat screen you can continue on your laptop here. If you do not, you should refer to the desktop tab to start a configuration.
 {{< /notice >}}
 
 1. Sign into your laptop and open Nunchuk. If you need help installing, refer to the install documentation found <u> [here](/getting-started/createsoftwarekey/) </u>
@@ -128,6 +134,10 @@ It is assumed that you have finished the desktop workflow and have a pending wal
 {{< /tab >}}
 
 {{< tab "Mobile" >}}
+
+{{< notice note >}}
+If you did not have all your keys available for the initial setup, you can continue from another device to continue the setup process. It is assumed that you have started to create a wallet. If you still have a pending configuration notification in your chat screen you can continue on your laptop here. If you do not, you should refer to the desktop tab to start a configuration.
+{{< /notice >}}
 
 1. Open your Nunchuk mobile app and navigate to the chat screen. You should see your wallet config notification here waiting for the last key!<br/><br/>
 

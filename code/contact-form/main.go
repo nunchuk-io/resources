@@ -144,11 +144,9 @@ func BuildReplyEmail(submission *ContactForm) string {
 </body>`
 	)
 
-	params := url.Values{}
-	params.Add("subject", fmt.Sprintf("[Nunchuk Support] - %s", submission.Subject))
-	params.Add("body", fmt.Sprintf("Hi %s,", submission.Name))
-
-	reply := fmt.Sprintf("mailto:%s?", submission.Mail) + params.Encode()
+	subject := url.PathEscape(fmt.Sprintf("[Nunchuk Support] - %s", submission.Subject))
+	body := url.PathEscape(fmt.Sprintf("Hi %s,\n", submission.Name))
+	reply := fmt.Sprintf("mailto:%s?&subject=%s&body=%s", submission.Mail, subject, body)
 
 	tmpl := template.Must(template.New("reply_email").Parse(HtmlBody))
 

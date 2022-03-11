@@ -49,7 +49,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
     alt = "Confirm wallet details (Screenshot)"/>
 
 {{< notice warning >}}
-  You will be prompted to back up your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) file. This is highly recommended for a multisignature wallet. There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
+  You will be prompted to back up your wallet by creating a BSMS (Bitcoin Secure Multisig Setup) file. This is highly recommended for a multi-signature wallet. There are 2 options for recovery. You will need either (a) the BSMS file and enough keys to satisfy the number of signatures required or (b) all keys and "guess" what the original BSMS file was. The latter might require specialized tools and can fail for highly-customized wallets. If you do not have a backup or a working wallet, you risk losing access to your funds forever.
 {{< /notice >}}
 
 <img src = downloadBSMSFile.png 

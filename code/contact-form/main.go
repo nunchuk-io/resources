@@ -3,13 +3,15 @@ package main
 //https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/ses-example-send-email.html
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"log"
+	"net/mail"
+	"net/url"
 	"os"
-	"strings"
+	"text/template"
 	"time"
 
 	"github.com/aws/aws-lambda-go/lambda"
@@ -33,19 +35,7 @@ const (
 	DevTestEmail        = "giahuy@nunchuk.io"
 	NunchukSupportEmail = "support@nunchuk.io"
 	CharSet             = "UTF-8"
-	HtmlBody            = `<body>
-<p>%s</p>
-<pre>%s</pre>
-</body>`
 )
-
-func ValidateEmail(email string) error {
-	emailSp := strings.Split(email, "@")
-	if len(emailSp) != 2 {
-		return errors.New("Wrong email format")
-	}
-	return nil
-}
 
 func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (string, error) {
 	log.Println("Request", submission)
@@ -92,7 +82,7 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 			Body: &ses.Body{
 				Html: &ses.Content{
 					Charset: aws.String(CharSet),
-					Data:    aws.String(fmt.Sprintf(HtmlBody, submission.Message, string(bytes))),
+					Data:    aws.String(BuildReplyEmail(&submission)),
 				},
 				Text: &ses.Content{
 					Charset: aws.String(CharSet),
@@ -137,4 +127,49 @@ func HandleContactFormSubmission(ctx context.Context, submission ContactForm) (s
 
 func main() {
 	lambda.Start(HandleContactFormSubmission)
+}
+
+func BuildReplyEmail(submission *ContactForm) string {
+	const (
+		HtmlBody = `<body>
+<p><b>Name:</b> {{ .name }}</p>
+<p><b>Email:</b> {{ .mail }}</p>
+<p><b>Date:</b> {{ .date }}</p>
+<p><b>Subject:</b> {{ .subject }}</p>
+<p><b>Message:</b></p>
+<p>{{ .message }}</p>
+
+<br/>
+<a href="{{ .reply }}">Click here to reply</a>
+</body>`
+	)
+
+	params := url.Values{}
+	params.Add("subject", fmt.Sprintf("[Nunchuk Support] - %s", submission.Subject))
+	params.Add("body", fmt.Sprintf("Hi %s,", submission.Name))
+
+	reply := fmt.Sprintf("mailto:%s?", submission.Mail) + params.Encode()
+
+	tmpl := template.Must(template.New("reply_email").Parse(HtmlBody))
+
+	var buf bytes.Buffer
+	err := tmpl.Execute(&buf, map[string]string{
+		"name":    submission.Name,
+		"mail":    submission.Mail,
+		"date":    submission.Date.Format("2006-01-02 15:04:05"),
+		"subject": submission.Subject,
+		"message": submission.Message,
+		"reply":   reply,
+	})
+
+	if err != nil {
+		log.Panic(err)
+	}
+
+	return buf.String()
+}
+
+func ValidateEmail(email string) error {
+	_, err := mail.ParseAddress(email)
+	return err
 }

@@ -2,7 +2,7 @@
 title: "Creating a multi-signature (multisig) wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
-weight: 4
+weight: 5
 draft: false
 # search related keywords
 keywords: ["mac, macos, windows, linux, ios, android"]

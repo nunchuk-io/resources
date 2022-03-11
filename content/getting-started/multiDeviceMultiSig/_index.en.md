@@ -2,7 +2,7 @@
 title: "Creating a self-managed, multi-device multisig wallet"
 date: 2022-02-22T16:03:11.470Z
 lastmod: 2022-02-22T16:03:11.470Z
-weight: 5
+weight: 6
 draft: false
 # search related keywords
 keywords: ["mac, macos, windows, linux, ios, android"]

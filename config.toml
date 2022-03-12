@@ -79,7 +79,7 @@ copyright = "©2022 Nunchuk. All rights reserved."
 
 # banner
 [Languages.en.params.banner]
-title = "Nunchuk Help & Resources"
+title = "How can we help?"
 subtitle = "Find answers from our team quickly or get in touch"
 bg_image = ""
 placeholder = "Enter your search keywords here"

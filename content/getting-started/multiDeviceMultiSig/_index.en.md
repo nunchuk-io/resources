@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2 of 3 wallet. You can also use this workflow as a template to easily create a another version of a multisig wallet.
+This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2-of-3 wallet. You can also use this workflow as a template to easily create a another version of a multisig wallet.
 {{< /notice >}}
 
 {{< notice info >}}
@@ -162,7 +162,7 @@ If you did not have all your keys available for the initial setup, you can conti
 
 <img src = desktopFinalizeWallet.png
     alt = "finalize wallet (Screenshot)">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>ssssssssssssssssssssssssssssssssssssssssssssss
 
 
 7. You will see all of the keys associated with the wallet and other important information. Click the "Finalize wallet" button once you're sure everything is correct.<br/><br/>

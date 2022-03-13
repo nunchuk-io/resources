@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like to their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2 of 3 wallet. You can also use this workflow as a template to easily create a another version of a multisig wallet.
+This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2 of 3 wallet. You can also use this workflow as a template to easily create a another version of a multisig wallet.
 {{< /notice >}}
 
 {{< notice info >}}
@@ -39,7 +39,7 @@ You will need to import or create a key for each of the devices you wish to use 
     alt = "Wallet + button (Screenshot)"/>
 
 4. Click the "Create a collaborative wallet" button to initiate the multisig configuration setup.<br/>
-<!-- Will need to update this image with new screenshot after fix -->
+
 <img src = desktopCreateCollabWalletBttn.png
     alt = "collaborative wallet question (Screenshot)"/>
 
@@ -74,29 +74,25 @@ The key in green (Software) is an eligible key to sign with for your current dev
 
 
 
-<!-- {{< notice note >}}
+{{< notice note >}}
 You may be required to add the keys on the device they were imported locally to. If that is the case, proceed to step 10.
-{{< /notice >}} -->
+{{< /notice >}}
 
-<!-- <img src = desktopErrorAddingKeys.png
+<img src = desktopErrorAddingKeys.png
     alt = "adding key error (Screenshot)"> -->
 
-<!-- 10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
+10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
 
 <img src = desktopSelectKey.png
-    alt = "Assign Key Desktop (Screenshot)"> -->
+    alt = "Assign Key Desktop (Screenshot)">
 
-11. You should now see the original chat screen you created in step 2. This is where you can find the pending wallet configuration.<br/><br/>
-
-{{< notice tip >}}
-You will need to access this chat screen and configuration file to if you did not complete your setup.
-{{< /notice>}}
+11. You should now see the original chat screen you created in step 2. This is where you can find the pending wallet configuration when you begin adding your keys on the next device.<br/><br/>
 
 <img src = desktopConfigDone.png
     alt = "Chat screen pending keys (Screenshot)">
 
 {{< notice note >}}
-You do not need to continue to the other tabs if you were able to add all the keys to your wallet. If you want to add a key created from another device, continue to the next tab.
+You do not need to continue to the other tabs if you were able to add all the keys to your wallet (number 9). If you want to add a key created from another device, continue to the next tab.
 {{< /notice >}}
 
 {{< /tab >}}
@@ -186,3 +182,6 @@ It is highly recommended to back up your wallet (noted in red, above). There are
 
 {{< /tab >}}
 {{</ tabs >}}
+
+
+Typically for collaborative wallets, the rule is that the creator of the wallet has to be the one to finalize it. However, for self-managed multisig, the wallet can be finalized from any device (since it's the same user). Once you have added all the required keys to your wallet, you will see a "Finalize wallet" button in the chat screen. You can click that on any device and finalize the wallet! Be sure to look for the backup option in the chat screen and <u>make a backup!</u>

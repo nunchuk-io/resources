@@ -162,7 +162,7 @@ If you did not have all your keys available for the initial setup, you can conti
 
 <img src = desktopFinalizeWallet.png
     alt = "finalize wallet (Screenshot)">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
 7. You will see all of the keys associated with the wallet and other important information. Click the "Finalize wallet" button once you're sure everything is correct.<br/><br/>

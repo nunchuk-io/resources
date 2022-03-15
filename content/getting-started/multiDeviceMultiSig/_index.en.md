@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2-of-3 wallet. You can also use this workflow as a template to easily create a another version of a multisig wallet.
+This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2-of-3 multisig wallet. You can also use this workflow as a template to easily create another version of a multisig wallet.
 {{< /notice >}}
 
 {{< notice info >}}
@@ -58,7 +58,7 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopCurrentConfig.png
     alt = "your current configuration (Screenshot)">
 
-8. You can now review other properties of your wallet configuration, then continue.<br/><br/>
+8. You can now review other parameters of your wallet configuration, then continue.<br/><br/>
 
 <img src = desktopReviewWallet.png
     alt = "Review collaborative wallet (Screenshot)">
@@ -71,15 +71,6 @@ The key in green (Software) is an eligible key to sign with for your current dev
 
 <img src = desktopAssignKeys.png
     alt = "Assign key (Screenshot)">
-
-
-
-{{< notice note >}}
-You may be required to add the keys on the device they were imported locally to. If that is the case, proceed to step 10.
-{{< /notice >}}
-
-<img src = desktopErrorAddingKeys.png
-    alt = "adding key error (Screenshot)"> -->
 
 10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
 
@@ -162,7 +153,7 @@ If you did not have all your keys available for the initial setup, you can conti
 
 <img src = desktopFinalizeWallet.png
     alt = "finalize wallet (Screenshot)">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>ssssssssssssssssssssssssssssssssssssssssssssss
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
 7. You will see all of the keys associated with the wallet and other important information. Click the "Finalize wallet" button once you're sure everything is correct.<br/><br/>

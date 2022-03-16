@@ -128,7 +128,7 @@ If you did not have all your keys available for the initial setup, you can conti
 
 1. Open your Nunchuk mobile app and navigate to the chat screen. You should see your wallet config notification here waiting for the last key!<br/><br/>
 
-<img src = mobileChatScreen.png
+<img src = mobilePendingKey.png
     alt = "mobile app chat screen (Screenshot)">
 
 2. Click on the "View config" button.<br/><br/>
@@ -148,15 +148,9 @@ If you did not have all your keys available for the initial setup, you can conti
 6. You should be returned to the chat screen. You should now see the wallet config notification says "Pending finalization". On any of your devices you can open the config again by clicking the "View Config" and then the "Finalize wallet" button!<br/><br/>
 
 <img src = mobileAllKeysAssigned.png
-    alt = "mobile phone chat screen (Screenshot)"
-    style = "float: left"/>
+    alt = "mobile phone chat screen (Screenshot)">
 
-<img src = desktopFinalizeWallet.png
-    alt = "finalize wallet (Screenshot)">
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-
-7. You will see all of the keys associated with the wallet and other important information. Click the "Finalize wallet" button once you're sure everything is correct.<br/><br/>
+7. You will now be able to see the finalize button. When you click that button you will see all of the keys associated with the wallet and other important information. Click the "Finalize wallet" button once you're sure everything is correct.<br/><br/>
 
 <img src = desktopFinalizeWalletConfig.png
     alt = "desktop wallet config (Screenshot)">
@@ -173,6 +167,5 @@ It is highly recommended to back up your wallet (noted in red, above). There are
 
 {{< /tab >}}
 {{</ tabs >}}
-
 
 Typically for collaborative wallets, the rule is that the creator of the wallet has to be the one to finalize it. However, for self-managed multisig, the wallet can be finalized from any device (since it's the same user). Once you have added all the required keys to your wallet, you will see a "Finalize wallet" button in the chat screen. You can click that on any device and finalize the wallet! Be sure to look for the backup option in the chat screen and <u>make a backup!</u>

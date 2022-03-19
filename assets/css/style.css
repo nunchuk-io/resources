@@ -446,8 +446,12 @@ pre {
 }
 
 @media (max-width: 375px) {
+  .navbar {
+  padding: 0px;
+  }
+
   .navbar-brand img {
-  max-height: 28px;
+  max-height: 24px;
   }
 }
 

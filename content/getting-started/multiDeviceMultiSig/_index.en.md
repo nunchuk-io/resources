@@ -14,7 +14,7 @@ This tutorial is for someone that would like their transactions to be signed fro
 
 {{< notice info >}}
 You must be signed in to your account in order to access the messaging system. <br/>
-You will need to import or create a key for each of the devices you wish to use in the wallet. These wallets can exist as foreign or software keys. You only need one device to create the setup. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
+You will need to import or create a key for each of the devices you wish to use in the wallet. The keys cannot be the same. If you need help creating keys click <u>[here](/getting-started/createsoftwarekey/)</u>
 {{</ notice >}}
 
 {{< tabs >}}
@@ -48,10 +48,15 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopWalletName.png
     alt = "Create collaborative wallet view (Screenshot)"/>
 
-6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.<br/><br/>
+6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.
+
+{{< notice tip >}}
+NOTE: The total number of keys refers to how many keys are valid for this wallet. The required keys refers to how many keys are needed to sign and send a transaction.
+{{< /notice >}}
 
 <img src = desktopWalletConfig.png
     alt = "Configure collaborative wallet (Screenshot)">
+
 
 7. Be sure to check your configuration before clicking "Continue".<br/><br/>
 
@@ -63,7 +68,8 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopReviewWallet.png
     alt = "Review collaborative wallet (Screenshot)">
 
-9. Assign the keys that are required for signing wallet transactions, and then continue.
+
+9. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".
 
 {{< notice tip >}}
 The key in green (Software) is an eligible key to sign with for your current device. Foreign keys are not eligible for signing locally and will need to be signed on the device they were imported or created on.
@@ -72,12 +78,10 @@ The key in green (Software) is an eligible key to sign with for your current dev
 <img src = desktopAssignKeys.png
     alt = "Assign key (Screenshot)">
 
-10. Ensure your local key is selected (for me, that is my Desktop Key) and click "Continue".<br/><br/>
-
 <img src = desktopSelectKey.png
     alt = "Assign Key Desktop (Screenshot)">
 
-11. You should now see the original chat screen you created in step 2. This is where you can find the pending wallet configuration when you begin adding your keys on the next device.<br/><br/>
+10. You should now see the original chat screen you created in step 2. This is where you can find the pending wallet configuration when you begin adding your keys on the next device.<br/><br/>
 
 <img src = desktopConfigDone.png
     alt = "Chat screen pending keys (Screenshot)">
@@ -157,9 +161,6 @@ If you did not have all your keys available for the initial setup, you can conti
 
 8. You're all done! You should see your wallet on the main screen.<br/><br/>
 
-<img src = desktopCompletedMultiSig.png
-    alt = "desktop chat screen (Screenshot)">
-
 {{< notice tip >}}
 It is highly recommended to back up your wallet (noted in red, above). There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
 {{< /notice>}}
@@ -169,3 +170,6 @@ It is highly recommended to back up your wallet (noted in red, above). There are
 {{</ tabs >}}
 
 Typically for collaborative wallets, the rule is that the creator of the wallet has to be the one to finalize it. However, for self-managed multisig, the wallet can be finalized from any device (since it's the same user). Once you have added all the required keys to your wallet, you will see a "Finalize wallet" button in the chat screen. You can click that on any device and finalize the wallet! Be sure to look for the backup option in the chat screen and <u>make a backup!</u>
+
+<img src = desktopCompletedMultiSig.png
+    alt = "desktop chat screen (Screenshot)">

@@ -28,7 +28,7 @@ To recover a collaborative wallet, you will need:
 * The **wallet configuration file**
 * A way of **exchanging files out-of-band**, such as email, messaging apps or SD cards
 
-**The number of seed phrases you will need is equal to the number of signatures required to unlock the wallet.** For example: for a 3-of-5 multisig wallet, you will need 3 seed phrases.
+**The number of seed phrases you will need is equal to the number of signatures required to spend from the wallet.** For example: for a 3-of-5 multisig wallet, you will need 3 seed phrases.
 
 {{< notice info >}}
   Seed phrases are backups for your keys. They are defined in [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).

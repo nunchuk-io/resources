@@ -25,7 +25,7 @@ To recover a personal wallet, you will need:
 * The **seed phrase(s)** for your key(s)
 * The **wallet configuration file**
 
-**The number of seed phrases you will need is equal to the number of signatures required to unlock the wallet.** For examples: for a singlesig wallet, you will need exactly 1 seed phrase; for a 2-of-3 multisig wallet, you will need 2 seed phrases.
+**The number of seed phrases you will need is equal to the number of signatures required to spend from the wallet.** For examples: for a singlesig wallet, you will need exactly 1 seed phrase; for a 2-of-3 multisig wallet, you will need 2 seed phrases.
 
 {{< notice info >}}
   Seed phrases are backups for your keys. They are defined in [BIP-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).

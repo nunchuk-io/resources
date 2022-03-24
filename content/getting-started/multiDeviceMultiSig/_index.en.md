@@ -9,7 +9,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 ---
 
 {{< notice note >}}
-This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, laptop, and a mobile phone to create a 2-of-3 multisig wallet. You can also use this workflow as a template to create more complex multisig wallets.
+This tutorial is for someone that would like their transactions to be signed from multiple devices. In this workflow, we will be using a desktop, a laptop, and a mobile phone to create a 2-of-3 multisig wallet. You can also use this workflow as a template to create more complex multisig wallets.
 {{< /notice >}}
 
 {{< notice info >}}
@@ -21,7 +21,7 @@ You will need to import or create a key for each of the devices you wish to use 
 
   {{< tab "Desktop" >}}
   
-1. Open the chat feature located on the left side bar. <br/><br/>
+1. Open the chat feature located on the left side menu. <br/><br/>
     
 <img src = desktopChatButton.png
     alt = "Chat Button (Screenshot)"/>
@@ -51,7 +51,7 @@ You will need to import or create a key for each of the devices you wish to use 
 6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.
 
 {{< notice tip >}}
-The total number of keys refers to how many keys are involved in this wallet. The required keys refer to how many keys are needed to sign off on each transaction. The latter is always smaller or equal to the former.
+The total number of keys refers to how many keys are involved in the wallet. The required keys refer to how many keys are needed to sign off on each transaction. The latter is always smaller or equal to the former.
 {{< /notice >}}
 
 <img src = desktopWalletConfig.png
@@ -63,7 +63,7 @@ The total number of keys refers to how many keys are involved in this wallet. Th
 <img src = desktopCurrentConfig.png
     alt = "your current configuration (Screenshot)">
 
-8. You can now review other parameters of your wallet configuration, then continue.<br/><br/>
+8. You can now review the other parameters of your wallet configuration, then continue.<br/><br/>
 
 <img src = desktopReviewWallet.png
     alt = "Review collaborative wallet (Screenshot)">
@@ -154,7 +154,7 @@ If you did not have all of your keys available on your desktop when assigning ke
 <img src = mobileAllKeysAssigned.png
     alt = "mobile phone chat screen (Screenshot)">
 
-7. YReview the wallet configuration one more time, make sure everything is correct, then click the "Finalize wallet" button.<br/><br/>
+7. Review the wallet configuration one more time, make sure everything is correct, then click the "Finalize wallet" button.<br/><br/>
 
 <img src = desktopFinalizeWalletConfig.png
     alt = "desktop wallet config (Screenshot)">
@@ -164,11 +164,11 @@ If you did not have all of your keys available on your desktop when assigning ke
 {{< /tab >}}
 {{</ tabs >}}
 
+Typically for collaborative wallets, the rule is that the creator of the wallet must be the one finalizing it. However, for self-managed multisig, the wallet can be finalized from any device (since it's the same user). Once you have assigned all keys to your wallet, you will see a "Finalize wallet" button in the chat screen. You can click that on any device and finalize the wallet! Be sure to follow the instructions to <u>create a backup</u>!
+
 {{< notice tip >}}
 It is highly recommended to back up your wallet (noted in red, below). There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
 {{< /notice>}}
-
-Typically for collaborative wallets, the rule is that the creator of the wallet must be the one finalizing it. However, for self-managed multisig, the wallet can be finalized from any device (since it's the same user). Once you have assigned all keys to your wallet, you will see a "Finalize wallet" button in the chat screen. You can click that on any device and finalize the wallet! Be sure to follow the instructions to <u>create a backup</u>!
 
 <img src = desktopCompletedMultiSig.png
     alt = "desktop chat screen (Screenshot)">

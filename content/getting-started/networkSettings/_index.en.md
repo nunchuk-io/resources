@@ -11,7 +11,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
 #### Switching to Testnet
 <hr>
 
-{{< notice info >}}
+{{< notice warning >}}
 Please do NOT change to testnet unless you know what you are doing. "The testnet is an alternative Bitcoin blockchain to be used for testing. Testnet coins are separate and distinct from actual bitcoin, and are never supposed to have any value. This allows application developers or bitcoin testers to experiment, without having to use real bitcoin or worrying about breaking the main bitcoin chain." - You can read more <u>[here](https://en.bitcoin.it)</u>.
 {{< /notice >}}
 

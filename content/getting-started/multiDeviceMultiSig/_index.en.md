@@ -48,22 +48,22 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopWalletName.png
     alt = "Create collaborative wallet view (Screenshot)"/>
 
-6. Specify the number of keys you will be using in your wallet. Then, specify the required number of keys needed to sign a transaction.
+6. Specify the number of keys you will be using in your wallet. Then, specify the number of keys needed to spend from the wallet.
 
 {{< notice tip >}}
-The total number of keys refers to how many keys are involved in the wallet. The required keys refer to how many keys are needed to sign off on each transaction. The latter is always smaller than or equal to the former.
+The total number of keys refers to how many keys are involved in the wallet. The required keys refer to how many keys are needed to sign off on each transaction. The latter number must be smaller than or equal to the former.
 {{< /notice >}}
 
 <img src = desktopWalletConfig.png
     alt = "Configure collaborative wallet (Screenshot)">
 
 
-7. Be sure to check your configuration before clicking "Continue".<br/><br/>
+7. Double check the key configuration before clicking "Continue".<br/><br/>
 
 <img src = desktopCurrentConfig.png
     alt = "your current configuration (Screenshot)">
 
-8. You can now review the other parameters of your wallet configuration, then continue.<br/><br/>
+8. Review the other parameters of your wallet, then continue.<br/><br/>
 
 <img src = desktopReviewWallet.png
     alt = "Review collaborative wallet (Screenshot)">
@@ -75,20 +75,22 @@ The total number of keys refers to how many keys are involved in the wallet. The
 The key in green (Software) is eligible for signing locally on your current device. Foreign keys are not eligible for signing locally. Signing using foreign keys must happen on the device they were created on (or imported into).
 {{< /notice >}}
 
-<img src = desktopAssignKeys.png
-    alt = "Assign key (Screenshot)">
-
 <img src = desktopSelectKey.png
     alt = "Assign Key Desktop (Screenshot)">
 
-10. You should now see a pending Wallet Creation card and a pending Wallet Creation pin in the chat room. Clicking on either one will allow you to review the wallet configuration, add, or replace keys. Continue to do this until the wallet is ready to be finalized.<br/><br/>
+Alternatively, you can assign all keys to the wallet at once.
+
+<img src = desktopAssignKeys.png
+    alt = "Assign key (Screenshot)">
+
+{{< notice note >}}
+As illustrated above, there are two ways to assign keys to a wallet in a chat. You could assign them from a single device, provided that all of your keys have been synced to that device. Or you could assign keys one-by-one from the respective devices that the keys were created on. If you choose to do the latter, continue onto the next tabs.
+{{< /notice >}}
+
+10. You should now see a pending Wallet Creation card and a pending Wallet Creation pin in the chat. Clicking on either one will allow you to review the wallet configuration, add or replace keys. Continue to do this until the wallet is ready to be finalized.<br/><br/>
 
 <img src = desktopConfigDone.png
     alt = "Chat screen pending keys (Screenshot)">
-
-{{< notice note >}}
-There are two ways to assign keys to a wallet in a chat (step 9). You could assign them from a single device, provided that all of your keys have been synced to that device. Or you could assign keys one-by-one from the respective devices that the keys were created on. If you choose to do the latter, continue onto the next tabs.
-{{< /notice >}}
 
 {{< /tab >}}
 
@@ -128,7 +130,7 @@ If you did not have all of your keys available on your desktop when assigning ke
 {{< tab "Mobile" >}}
 
 {{< notice note >}}
-If you did not have all of your keys available on your desktop when assigning keys to wallet, you can continue the assignment from another device. It is assumed that you have started to create a wallet and can see a pending Wallet Creation notification in the chat screen of your laptop. If you do not, you should go back to the desktop tab and create a wallet first.
+If you did not have all of your keys available on your desktop when assigning keys to wallet, you can continue the assignment from another device. It is assumed that you have started to create a wallet and can see a pending Wallet Creation notification in the chat screen of your mobile device. If you do not, you should go back to the desktop tab and create a wallet first.
 {{< /notice >}}
 
 1. Open your Nunchuk mobile app and navigate to the chat screen. You should see your pending Wallet Creation notification here waiting for the last key!<br/><br/>
@@ -143,24 +145,22 @@ If you did not have all of your keys available on your desktop when assigning ke
 <img src = mobileContinueAssignKeys.png
     alt = "Wallet configuration (Screenshot)">
 
-4. You can now assign the last key (in the screenshot below, it is the Mobile Key).<br/><br/>
-
-5. Click the "Assign keys" to finalize your wallet with the last key.<br/><br/>
+4. You can now assign the last key to the wallet (in the screenshot below, it is the Mobile Key).<br/><br/>
 
 <img src = mobileAssignKeysSendInvite.png
     alt = "assign keys and send invite (Screenshot)">
 
-6. You should now be returned to the chat screen and see that the wallet status has changed to "Pending finalization". On any of your devices you can open the wallet config again by clicking the "View Config" and then the "Finalize wallet" button!<br/><br/>
+5. You should now be returned to the chat screen and see that the wallet status has changed to "Pending finalization". On any of your devices you can open the wallet config again by clicking the "View Config" and then the "Finalize wallet" button!<br/><br/>
 
 <img src = mobileAllKeysAssigned.png
     alt = "mobile phone chat screen (Screenshot)">
 
-7. Review the wallet configuration one more time, make sure everything is correct, then click the "Finalize wallet" button.<br/><br/>
+6. Review the wallet configuration one more time, make sure everything is correct, then click the "Finalize wallet" button.<br/><br/>
 
 <img src = desktopFinalizeWalletConfig.png
     alt = "desktop wallet config (Screenshot)">
 
-8. You're all done! You should see your wallet on the main screen.<br/><br/>
+7. You're all done! You should see your wallet on the main screen.<br/><br/>
 
 {{< /tab >}}
 {{</ tabs >}}
@@ -170,7 +170,7 @@ Typically for collaborative wallets, the rule is that the creator of the wallet 
 {{< /notice >}}
 
 {{< notice tip >}}
-It is highly recommended to back up your wallet (noted in red, below). There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
+It is highly recommended to back up your wallet (highligted in red below). There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.
 {{< /notice>}}
 
 <img src = desktopCompletedMultiSig.png

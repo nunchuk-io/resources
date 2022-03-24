@@ -26,7 +26,7 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopChatButton.png
     alt = "Chat Button (Screenshot)"/>
 
-2. Click the "Start new message" button and type in your user email. You should see your name and email pop up below, click it!<br/><br/>
+2. Click the "Start new message" button and type in your name or email. You should see your name and email pop up below, click it!<br/><br/>
 
 <img src = desktopStartNewMessage.png
     alt = "start new message button (Screenshot)"/>
@@ -38,7 +38,7 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopJoinedChatRoom.png
     alt = "Wallet + button (Screenshot)"/>
 
-4. Click the "Create a collaborative wallet" button to initiate the multisig configuration setup.<br/>
+4. Click the "Create a collaborative wallet" button to initiate the wallet creation process.<br/>
 
 <img src = desktopCreateCollabWalletBttn.png
     alt = "collaborative wallet question (Screenshot)"/>
@@ -48,10 +48,10 @@ You will need to import or create a key for each of the devices you wish to use 
 <img src = desktopWalletName.png
     alt = "Create collaborative wallet view (Screenshot)"/>
 
-6. Add the number of keys you will be using in your wallet. Then, add the required keys to sign a transaction.
+6. Specify the number of keys you will be using in your wallet. Then, specify the required number of keys needed to sign a transaction.
 
 {{< notice tip >}}
-The total number of keys refers to how many keys are involved in the wallet. The required keys refer to how many keys are needed to sign off on each transaction. The latter is always smaller or equal to the former.
+The total number of keys refers to how many keys are involved in the wallet. The required keys refer to how many keys are needed to sign off on each transaction. The latter is always smaller than or equal to the former.
 {{< /notice >}}
 
 <img src = desktopWalletConfig.png
@@ -164,7 +164,9 @@ If you did not have all of your keys available on your desktop when assigning ke
 {{< /tab >}}
 {{</ tabs >}}
 
+{{< notice tip >}}
 Typically for collaborative wallets, the rule is that the creator of the wallet must be the one finalizing it. However, for self-managed multisig, the wallet can be finalized from any device (since it's the same user). Once you have assigned all keys to your wallet, you will see a "Finalize wallet" button in the chat screen. You can click that on any device and finalize the wallet! Be sure to follow the instructions to <u>create a backup</u>!
+{{< /notice >}}
 
 {{< notice tip >}}
 It is highly recommended to back up your wallet (noted in red, below). There are 2 options for recovery. Either (a) the BSMS file AND enough keys to satisfy the number of signatures requirement or (b) all keys and brute-forcing to "guess" what the original BSMS file was (this can fail with highly-customized and more advanced wallet configurations).If you do not have a backup or a working wallet, you risk losing access to your funds forever.

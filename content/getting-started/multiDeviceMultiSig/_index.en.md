@@ -81,7 +81,7 @@ The key in green (Software) is eligible for signing locally on your current devi
 <img src = desktopSelectKey.png
     alt = "Assign Key Desktop (Screenshot)">
 
-10. You should now see a Pending Wallet Creation card and a Pending Wallet Creation pin in the chat room. Clicking on either one will allow you to review the wallet configuration, add, or replace keys. Continue to do this until the wallet is ready to be finalized.<br/><br/>
+10. You should now see a pending Wallet Creation card and a pending Wallet Creation pin in the chat room. Clicking on either one will allow you to review the wallet configuration, add, or replace keys. Continue to do this until the wallet is ready to be finalized.<br/><br/>
 
 <img src = desktopConfigDone.png
     alt = "Chat screen pending keys (Screenshot)">
@@ -100,6 +100,7 @@ If you did not have all of your keys available on your desktop when assigning ke
 
 1. Sign into your laptop and open Nunchuk. If you need help installing, refer to the install documentation found <u> [here](/getting-started/createsoftwarekey/) </u>
 <br/><br/>
+
 2. Navigate to the chat screen. There you should see the pending Wallet Creation notification. Click the "View config" button.<br/><br/>
 
 <img src = laptopConfigNote.png

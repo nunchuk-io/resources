@@ -70,11 +70,11 @@ keywords: ["mac, macos, windows, linux, ios, android"]
   {{< /tab >}}
 
   {{< tab "MacOS" >}}
-  Insert MacOS workflow here!
+  <!-- Insert MacOS workflow here! -->
   {{< /tab >}}
 
   {{< tab "Linux OS" >}}
-  Insert Linux OS workflow here!
+  <!-- Insert Linux OS workflow here! -->
   {{< /tab >}}
 
 {{</ tabs >}}

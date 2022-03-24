@@ -38,7 +38,7 @@ keywords: ["mac, macos, windows, linux, ios, android"]
     style = "float: center"/>
 
 
-5. Add the number of signatures (keys) required to sign/send a transaction. You can only require as many keys that you have associated with the wallet. Each key required is a signer for the transaction.
+5. Specify the number of keys (signatures) required to spend from the wallet. This number must be greater than or equal to one, and less than or equal to the total number of keys in the wallet.
 
 <img src = requiredSignatures.png
     alt = "Required signature (Screenshot)"/>

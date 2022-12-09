@@ -5,4 +5,5 @@ icon: "fa-brands fa-bitcoin"
 description: "Bitcoin basics: keys, transactions, change addresses, unspent outputs (UTXOs), etc."
 weight: 4
 type : "docs"
+draft: true
 ---

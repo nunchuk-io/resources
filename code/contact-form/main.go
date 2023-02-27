@@ -11,6 +11,7 @@ import (
 	"net/mail"
 	"net/url"
 	"os"
+	"strings"
 	"text/template"
 	"time"
 
@@ -146,7 +147,7 @@ func BuildReplyEmail(submission *ContactForm) string {
 
 	subject := url.PathEscape(fmt.Sprintf("[Nunchuk Support] - %s", submission.Subject))
 	body := url.PathEscape(fmt.Sprintf("Hi %s,\n", submission.Name))
-	reply := fmt.Sprintf("mailto:%s?&subject=%s&body=%s", submission.Mail, subject, body)
+	reply := fmt.Sprintf("mailto:%s?&subject=%s&body=%s", strings.Join([]string{submission.Mail, NunchukSupportEmail}, ","), subject, body)
 
 	tmpl := template.Must(template.New("reply_email").Parse(HtmlBody))
 

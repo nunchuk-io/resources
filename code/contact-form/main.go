@@ -141,24 +141,37 @@ func BuildReplyEmail(submission *ContactForm) string {
 <p>{{ .message }}</p>
 
 <br/>
-<a href="{{ .reply }}">Click here to reply</a>
+<a href="{{ .reply }}">Copy the template below and click here to reply</a>
+<br><br>
+<div>Hello {{ .firstName }},<br>
+Thank you for contacting Nunchuk.<br>
+<br>
+<br>
+<br>
+Thanks,<br>
+The Nunchuk team.<br>
+<br>
+Improve your security and plan your Bitcoin inheritance with our state-of-the-art multisig wallets.<br>
+Website: <a href="https://nunchuk.io">https://nunchuk.io</a><br>
+Twitter: <a href="https://twitter.com/nunchuk_io/">@nunchuk_io</a><br>
+Join our <a href="https://nunchukio.slack.com/join/shared_invite/zt-xqdlvl5g-xKKohQu_R7IUo7_np8rVaw#/shared-invite/email">Slack community</a><br>
+</div>
 </body>`
 	)
 
 	subject := url.PathEscape(fmt.Sprintf("[Nunchuk Support] - %s", submission.Subject))
-	body := url.PathEscape(fmt.Sprintf("Hi %s,\n", submission.Name))
-	reply := fmt.Sprintf("mailto:%s?&subject=%s&body=%s", strings.Join([]string{submission.Mail, NunchukSupportEmail}, ","), subject, body)
-
+	reply := fmt.Sprintf("mailto:%s?&subject=%s", strings.Join([]string{submission.Mail, NunchukSupportEmail}, ","), subject)
 	tmpl := template.Must(template.New("reply_email").Parse(HtmlBody))
 
 	var buf bytes.Buffer
 	err := tmpl.Execute(&buf, map[string]string{
-		"name":    submission.Name,
-		"mail":    submission.Mail,
-		"date":    submission.Date.Format("2006-01-02 15:04:05"),
-		"subject": submission.Subject,
-		"message": submission.Message,
-		"reply":   reply,
+		"name":      submission.Name,
+		"firstName": strings.Split(submission.Name, " ")[0],
+		"mail":      submission.Mail,
+		"date":      submission.Date.Format("2006-01-02 15:04:05"),
+		"subject":   submission.Subject,
+		"message":   submission.Message,
+		"reply":     reply,
 	})
 
 	if err != nil {

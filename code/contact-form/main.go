@@ -142,13 +142,14 @@ func BuildReplyEmail(submission *ContactForm) string {
 
 <br/>
 <a href="{{ .reply }}">Copy the template below and click here to reply</a>
+=============================
 <br><br>
 <div>Hello {{ .firstName }},<br>
 Thank you for contacting Nunchuk.<br>
 <br>
 <br>
 <br>
-Thanks,<br>
+Best regards,<br>
 The Nunchuk team.<br>
 <br>
 Improve your security and plan your Bitcoin inheritance with our state-of-the-art multisig wallets.<br>

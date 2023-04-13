@@ -147,6 +147,7 @@ func BuildReplyEmail(submission *ContactForm) string {
 <div>Hello {{ .firstName }},<br>
 Thank you for contacting Nunchuk.<br>
 <br>
+> {{ .message }}
 <br>
 <br>
 Best regards,<br>

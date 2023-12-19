@@ -6,7 +6,7 @@
 - [RaspiBlitz](raspiblitz.md)
 
 
-<b>Troubleshouting</b>
+<b>Troubleshooting</b>
 
 1. Ensure that you are using the latest Nunchuk app.
 2. Enter the correct address:

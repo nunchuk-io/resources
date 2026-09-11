@@ -25,7 +25,7 @@ https://start9.com/latest/user-manual/connecting/connecting-tor/tor-os/index
 
 1. Enter your electrs Hostname and Port (found in your Embassy's electrs service page, under "Properties") into the "MAINNET SERVER" field.
 
-1. "Enable Use TOR Proxy" and then enter "127.0.0.1" for the address and "9050" for the port.
+1. Enable "Use TOR Proxy" and enter `127.0.0.1` as the proxy address. Use port `9050` if you are running the Tor service, or `9150` if you are using Tor Browser. Keep the Tor service or Tor Browser running while using Nunchuk.
 
 1. Save network settings then restart Nunchuk
 

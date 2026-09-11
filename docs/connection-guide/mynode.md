@@ -10,7 +10,8 @@
 5. Enter the IP you just copied and the Electrum Server port (default is 50001), separated by `:` into the Mainnet server. For example: `y6j7bn4rogpz3pk5jcvwhlsboizofbn7dvk7i6y6wbqjcid.onion:50001`
  Note that if you use the secure port `50002`, you need to prefix the address with `ssl://`.  For example:
  `ssl://y6j7bn4rogpz3pk5jcvwhlsboizofbn7dvk7i6y6wbqjcid.onion:50002`
-1. Save network settings then restart Nunchuk
+6. On desktop, enable "Use TOR Proxy" and enter `127.0.0.1` as the proxy address. Use port `9050` if you are running the Tor service, or `9150` if you are using Tor Browser. Keep the Tor service or Tor Browser running while using Nunchuk.
+7. Save network settings, then restart Nunchuk.
 
 ##### Mobile
 <p float="left">
